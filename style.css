@@ -16,7 +16,7 @@ body	{
 .container	{
 				width: 100%;
 				margin: 0px auto;
-				border: 1px solid black;
+				/* border: 1px solid black; */
 				z-index: 0;
 				position: absolute;
 				text-align: center;
@@ -102,7 +102,7 @@ body	{
 			animation-duration: 12s;
 			animation-timing-function: linear;
 			animation-iteration-count: infinite;
-			/*border: 1px solid lime;*/
+			/* border: 1px solid lime; */
 }
 
 .title2	{
@@ -112,7 +112,7 @@ body	{
 			animation-duration: 12s;
 			animation-timing-function: linear;
 			animation-iteration-count: infinite;
-			/*border: 1px solid lime;*/
+			/* border: 1px solid lime; */
 }
 
 nav	{	
@@ -131,7 +131,7 @@ nav	{
 		}
 
 		.nav-text{
-			/*border: 1px solid lime;*/
+			/* border: 1px solid lime; */
 			text-decoration: none;
 			color: black;
 			text-align:	center;
