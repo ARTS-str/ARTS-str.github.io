@@ -155,7 +155,7 @@ nav	{
 	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	text-align: left;
 }
-@media only screen and (max-width: 667px){
+@media only screen and (max-width: 1000px){
 	.slider-wrapper {
 		transform: translateX(-150px);
 	}
@@ -189,7 +189,7 @@ nav	{
 	display: flex;
 	column-gap: 1rem;
 	position: absolute;
-	bottom: 1.5rem;
+	bottom: 1rem;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 4;
