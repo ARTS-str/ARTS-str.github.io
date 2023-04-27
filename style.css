@@ -72,44 +72,55 @@ body	{
 		  }
 
 @keyframes titleMove {
-	0% {transform: translateX(0%);}
-	49% {transform: translateX(100%);}
+	0% {transform: translateX(0vw);}
+	49% {transform: translateX(100vw);}
 	50% {transform: scale(0);}
-	51% {transform: translateX(-100%);}
-	100% {transform: translateX(0%);}
+	51% {transform: translateX(-100vw);}
 }
 
 @keyframes titleMove2 {
-	0% {transform: translateX(-100%);}
-	49% {transform: translateX(0%);}
-	98% {transform: translateX(100%);}
+	0% {transform: translateX(-100vw);}
+	49% {transform: translateX(0vw);}
+	98% {transform: translateX(100vw);}
 	99% {transform: scale(0);}
-	100% {transform: translateX(-100%);}
+	100% {transform: translateX(-100vw);}
 }
 
 .titleAllign {
 			position: sticky;
-			font-size: 1.51rem;
+			font-size: 1.53vw;
 			font-family: Williesh;
 			top: 0;
-			z-index: 3;
+			z-index: 4;
+			background-color: aliceblue;
+			padding: 0;
+
 }
 .title	{
 			position: absolute;
-			animation: titleMove 10s infinite linear;
+			animation-name: titleMove;
+			animation-duration: 12s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			border: 1px solid lime;
 }
 
 .title2	{
 			position: relative;
-			left: -2rem;
-			animation: titleMove2 10s infinite linear;
+			left: -2.5vw;
+			animation-name: titleMove2;
+			animation-duration: 12s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			border: 1px solid lime;
 }
 
 nav	{	
 			width: 100%;
+			margin-top: 2vh;
 			display: flex;
 			justify-content: center;
-			z-index: 3;
+			z-index: 4;
 }
 
 		nav ul li{
@@ -120,6 +131,7 @@ nav	{
 		}
 
 		.nav-text{
+			border: 1px solid lime;
 			text-decoration: none;
 			color: black;
 			text-align:	center;
@@ -142,12 +154,13 @@ nav	{
 			position: sticky;
 			margin-top: 38vw;
 			top: 0;
-			width: 100%;
+			width: 100vw;
 			background-color: aliceblue;
 			z-index: 3;
 			padding: 2vw;
 
 }
+
 .proyectos h2 {
 	font-size: 5vw;
 	text-align: left;
@@ -155,11 +168,21 @@ nav	{
 }
 .proyectos p {
 	padding: .5rem;
+	font-size: clamp(1px, 3vw, 2.2vw);
 	width: 50vw;
-	font-size: clamp(12px, 3vw, 2.1vw);
 	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	text-align: left;
 }
+@media only screen and (max-width: 667px){
+	.slider-wrapper {
+		transform: translateX(-41vw);
+	}
+	.proyectos p{
+		width: 90vw;
+		font-size: clamp(16px, 3vw, 3vw);
+	}
+}
+
 .slider-wrapper {
 	display: flex;
 	overflow-x: auto;
