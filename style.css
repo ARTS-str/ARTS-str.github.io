@@ -157,8 +157,7 @@ nav	{
 }
 @media only screen and (max-width: 667px){
 	.slider-wrapper {
-		translate: -40vw;
-		width: 50vw;
+		transform: translateX(-150px);
 	}
 	.proyectos p{
 		width: 90vw;
@@ -172,6 +171,7 @@ nav	{
 	padding: 3rem;
 	position: relative;
 	margin-left: 50vw;
+	width: 38vw;
 }
 .slider {
 	display: flex;
