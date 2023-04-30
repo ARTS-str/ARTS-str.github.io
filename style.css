@@ -1,8 +1,6 @@
 *{
 	margin: 0px;
 	padding: 0px;
-	--width: 100vw;
-	--proyecto_Width: 50vw;
 	scroll-behavior: smooth;
 }
 
@@ -15,15 +13,44 @@ body	{
 
 .container	{
 				width: 100%;
-				margin: 0px auto;
 				/* border: 1px solid black; */
 				z-index: 0;
 				position: absolute;
 				text-align: center;
 }
 
+
+.titleAllign {
+	position: sticky;
+	font-size: 1.53vw;
+	font-family: Williesh;
+	top: 0;
+	z-index: 4;
+	background-color: aliceblue;
+	padding: 0;
+
+}
+.title	{
+	position: absolute;
+	animation-name: titleMove;
+	animation-duration: 12s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	/* border: 1px solid lime; */
+}
+
+.title2	{
+	position: relative;
+	left: -2.5vw;
+	animation-name: titleMove2;
+	animation-duration: 12s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	/* border: 1px solid lime; */
+}
+
 .topAnim_Background, .topAnim_C, .topAnim_O, .topAnim_Arts {
-		width: var(--width);
+		width: 100%;
 		position: absolute;
 		top: -20px;
 		left: 0;
@@ -68,34 +95,6 @@ body	{
 	100% {transform: translateX(-100vw);}
 }
 
-.titleAllign {
-			position: sticky;
-			font-size: 1.53vw;
-			font-family: Williesh;
-			top: 0;
-			z-index: 4;
-			background-color: aliceblue;
-			padding: 0;
-
-}
-.title	{
-			position: absolute;
-			animation-name: titleMove;
-			animation-duration: 12s;
-			animation-timing-function: linear;
-			animation-iteration-count: infinite;
-			/* border: 1px solid lime; */
-}
-
-.title2	{
-			position: relative;
-			left: -2.5vw;
-			animation-name: titleMove2;
-			animation-duration: 12s;
-			animation-timing-function: linear;
-			animation-iteration-count: infinite;
-			/* border: 1px solid lime; */
-}
 
 nav	{	
 			width: 100%;
@@ -129,50 +128,60 @@ nav	{
 			clear: both;
 }
 
-.proyectos_Overlay {
+.contenido_Overlay {
 	position: relative;
+	top: 36vw;
+	z-index: 3;
+	background-color: aliceblue;
 }
-.proyectos{
+
+.proyectos, .team {
 			position: sticky;
-			margin-top: 38vw;
 			top: 0;
-			width: 100vw;
-			background-color: aliceblue;
-			z-index: 3;
-			padding: 2vw;
+			height: 90vh;
 
 }
 
-.proyectos h2 {
+.team {
+			background-color: aliceblue;
+}
+
+.contenido article{
+	color: #080708ff;
+	margin: 15px;
+	position: relative;
+	float: left;
+}
+.articleImg{
+	width: 100%;
+	margin: 1.5vw;
+}
+
+.contenido h2 {
 	font-size: 5vw;
 	text-align: left;
-	padding: .5rem;
+	padding: 2rem .5rem;
+	box-sizing: border-box;
+	margin-left: 2vw;
 }
-.proyectos p {
+.contenido p {
+	margin-left: 2vw;
 	padding: .5rem;
-	font-size: clamp(1px, 3vw, 2.2vw);
+	font-size: clamp(12px, 3vw, 2.1vw);
 	width: 50vw;
 	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	text-align: left;
 }
-@media only screen and (max-width: 1000px){
-	.slider-wrapper {
-		transform: translateX(-150px);
-	}
-	.proyectos p{
-		width: 90vw;
-		font-size: clamp(16px, 3vw, 3vw);
-	}
-}
-
 .slider-wrapper {
+	left: 8vw;
+	top: 10vh;
 	display: flex;
 	overflow-x: auto;
 	padding: 3rem;
 	position: relative;
-	margin-left: 50vw;
-	width: 38vw;
+	width: 29vw;
 }
+
 .slider {
 	display: flex;
 	aspect-ratio: 1/1;
@@ -197,7 +206,7 @@ nav	{
 .slider-nav a {
 	width: 0.7rem;
 	height: 0.7rem;
-	border-radius: 50%;
+	border-radius: 50%;		
 	background-color: #c23733;
 	opacity: .75;
 	transition: opacity ease 250ms;
@@ -206,16 +215,6 @@ nav	{
 	opacity: 100%;
 }
 
-.proyectos article{
-			color: #080708ff;
-			margin: 15px;
-			position: relative;
-			float: left;
-		}
-		.articleImg{
-			width: 100%;
-			margin: 1.5vw;
-}
 		
 
 footer{
@@ -224,6 +223,6 @@ footer{
 			text-align: center;
 			line-height: 50px;
 			position: relative;
-			margin-top: 100vh;
+			bottom: -90vh;
 			z-index: 4;
 }

@@ -28,6 +28,7 @@
 			<img class="topAnim_O" src="img/Recurso 3CIRC O (Grande).png"/>
 			<img class="topAnim_Arts" src="img/Recurso 4CIRC ARTS (Grande).png"/>
 		</div>
+	
 
 		<!--- Menú -->
 		
@@ -36,7 +37,7 @@
 			<ul>
 				<li><a class="nav-text" href="index.html">Inicio</a></li>
 				<li><a class="nav-text" href="#Proyectos">Proyectos</a></li>
-				<li><a class="nav-text" href="equipo.html">Quienes somos</a></li>
+				<li><a class="nav-text" href="#team">Quienes somos</a></li>
 				<li><a class="nav-text" href="contacto.html">Contacto</a></li>
 			</ul>
 		</nav>
@@ -44,23 +45,24 @@
 		<div class="clearfix"></div>
 
 		<!--- Contenido -->
-		<div class="proyectos">
-			<div class="proyectos_Overlay">
-			<article class="article" id="Proyectos">
+		<div class="contenido"> <!-- cambiar nombre de class a contenido-->
+			<div class="contenido_Overlay">
+				<div class="proyectos"  id="Proyectos">
+			<article class="article" >
 				<h2>Proyectos</h2>
-				<p>Proyecto de diseño gráfico que busca representar conceptos puramente desde el objeto abstracto. Trabajando con una variedad de programas estándar en la industria, como Photoshop, Illustrator, After Effects y Blender, exploro los límites tanto del diseño gráfico como los de la narrativa abstracta. Experimento con diferentes técnicas de impresión y como un medio de difusión realizo paste ups en diferentes lugares de mi ciudad natal. Arte por el arte.</p>
+				<p>Proyecto de diseño gráfico que busca representar conceptos puramente desde el objeto abstracto. Trabajando con una variedad de programas estándar en la industria, como Photoshop, Illustrator, After Effects y Blender, exploro los límites tanto del diseño gráfico como los de la narrativa abstracta. Experimento con diferentes técnicas de impresión y como un medio de difusión realizo paste ups en diferentes lugares de mi ciudad natal. <br/> Arte por el arte.</p>
 			</article>
 			
 			<section class="slider-wrapper">
 				<div class="slider">
-					<video id="articleImg_1" autoplay loop controls>
+					<video id="articleImg_1" loop controls>
 						<source src="img/CRYSTAL2.mp4" type="video/mp4">
 					</video>
 
-					<video id="articleImg_2" autoplay loop controls>	
-						<source src="img/PROY_F2.mp4" type="video/mp4">
+					<video id="articleImg_2" loop controls>	
+						<source src="img/FLUCTUACIONES.mp4" type="video/mp4">
 					</video>
-					<video id="articleImg_3" autoplay loop controls>	
+					<video id="articleImg_3" loop controls>	
 						<source src="img/ENERGIA.mp4" type="video/mp4">
 					</video>
 				</div>
@@ -70,6 +72,35 @@
 					<a href="#articleImg_3"></a>
 				</div>
 			</section>
+		</div>
+			<div class="clearfix"></div>
+			<div class="team" id="team">
+			<article class="article">
+				<h2>Quienes somos</h2>
+				<p>El kea</p>
+			</article>
+
+			<section class="slider-wrapper">
+				<div class="slider">
+					<video id="articleImg_4" loop controls muted>
+						<source src="img/CRYSTAL2.mp4" type="video/mp4">
+					</video>
+
+					<video id="articleImg_5" loop controls muted>	
+						<source src="img/FLUCTUACIONES.mp4" type="video/mp4">
+					</video>
+					<video id="articleImg_6" loop controls muted>	
+						<source src="img/ENERGIA.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="slider-nav">
+					<a href="#articleImg_4"></a>
+					<a href="#articleImg_5"></a>
+					<a href="#articleImg_6"></a>
+				</div>
+			</section>
+			</div>
+			
 		</div>
 		</div>
 
@@ -84,7 +115,7 @@
 
 		</footer>
 
-
+	</div>
 
 
 </body>
