@@ -83,7 +83,7 @@ body {
 .lateralizar {
   transform: translateX(50%);
 }
-h1 {
+.spacing {
   letter-spacing: -3px;
 }
 a {
