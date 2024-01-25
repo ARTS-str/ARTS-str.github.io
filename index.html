@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>ARTS.STR</title>
-            <link type="text/css" rel="stylesheet" href="style.css">
-        </head>
-    
-    <body>
-
-        <div class="row">
-            <div class="col-12">
-				<div class="titleAllign">
-					<h1 class="title">ARTS.STR ARTS.STR ARTS.STR ARTS.STR ARTS.STR ARTS.STR</h1><h1 class="title2">ARTS.STR ARTS.STR ARTS.STR ARTS.STR ARTS.STR ARTS.STR</h1>
-				</div>
-			</div>
-            <div class="col-12">
-                
-                <section class="topAnim_Container">
-                    <div class="topAnim_stick">
-                        <div class="topAnim">
-                        <img class="topAnim_Background" src="img/Anim (1).png"/>
-                        <img class="topAnim_C" src="img/Anim (2).png"/>
-                        <img class="topAnim_O" src="img/Anim (3).png"/>
-                        <img class="topAnim_Arts" src="img/Anim (4).png"/>
-                        </div>
-                    </div>
-                </section>
-                <div class="leyenda">
-                    <h1 class="spacing">Página en construcción</h1>
-                    <a href="https://www.instagram.com/arts.str" target="_blank"><p>Visita nuestro Instagram</p>
-                    <a class="lateralizar" href="https://arts-str.github.io/dcv.github.io"><p>Proyecto para DCV Grillas interactivas</p></a>
-                </div>
-            </div>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Arts.str</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="stylesheet" href="https://use.typekit.net/gnc7ufv.css">
+</head>
+<body>
+    <div id="header">
+        <h1 id="head-title">ARTS.STR</h1>
+        <div id="topnav">
+            <h3>Proyectos</h3>
+            <h3>Quienes somos</h3>
+            <h3>Contacto</h3>
         </div>
+    </div>
+    <video id="gem" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted">
+        <source  src="sources/video/gem.webm">
+        <source  src="sources/video/gem.mov">
+    </video>
+    <video id="background" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" >
+        <source  src="sources/video/background.webm">
+        <source  src="sources/video/background.mov">
+    </video>
 
-    </body>
-</html> 
+    <article id="content">
+
+        <div id="container"></div>
+        <div id="bgcontainer"></div>
+        
+    </article>
+
+
+
+    <script src='script.js' type="module"></script>
+</body>
+</html>
