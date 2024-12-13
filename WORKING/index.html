@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>PORTFOLIO</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+<body>
+       
+    <div class="topnav">
+        <a href="../">Inicio</a>
+        <a href="">Quienes somos</a>
+        <a href="">Proyectos</a>
+        <a href="">Contacto</a>
+    </div>
+
+    <div class="title-container" onmousemove="variar(event)">
+        <h1 draggable="false" id="font">SOY <a id="titulo-variable" href="">ARTS.</a></h1>
+    </div>
+
+    <div class="scroll-button-container top-scroll" onclick="scrollPortfolio()">
+        <svg class="scroll-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="aliceblue"d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg>
+    </div>
+    
+    <!-- <div class="info-container" id="arts-contain">
+        <div id="arts">
+            <div class="close" onclick="closeCurrent(arts)">x</div>
+            <h2>Personal</h2>
+            <div class="gallery-exp">
+                <video webkit-playsinline playsinline draggable="false" class="image" loop>
+                    <source src="img/ENERGIA.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+                <img draggable="false" class="image" src="img/3.jpg" alt="">
+                <video  webkit-playsinline playsinline draggable="false" class="image" loop>
+                   <source src="img/REFRACCION.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+
+                <img draggable="false" class="image" src="img/6.jpg" alt="">
+                <video  webkit-playsinline playsinline draggable="false" class="image" loop>
+                    <source src="img/NADA.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+                <video  webkit-playsinline playsinline draggable="false" class="image" loop>
+                    <source src="img/WAVES.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+            </div>
+            <div class="text-container">
+                <p class="text-info"> Este proyecto comenzó en 2022 -junto con mi carrera universitaria- y ha sido una de las mejores maneras
+                    de <strong>aprender las herramientas</strong>, familiarizarme con los atajos y generar un Workflow óptimo para un proyecto. <br>
+                    Más allá de las ventajas que me pueda dar tener el diseño como un hobby para la vida profesional este proyecto para mí
+                    se valoriza como una manera de explorar visualidades que siempre me imaginé pero que nunca había sido capaz de lograr.
+                </p>
+                <p class="text-info">
+                    Es experimentación pura, diseño por diseño, una exploración de lo sensorial, el color, la transparencia, y la luz.
+                    Un desafío autoimpuesto que me ayudó a <strong>subir el nivel técnico </strong><br>
+                    Influenciado por la naturaleza del universo y sus principios físicos básicos
+                    intento graficar ideas y conceptos abstractos de la física moderna de una manera
+                    estéticamente atractiva.
+                </p>
+               
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="info-container" id="mito-contain">
+        <div id="mito">
+            <div class="close" onclick="closeCurrent(mito)">x</div>
+            <h2>Para mito</h2>
+            <div class="gallery-exp">
+                <video  webkit-playsinline playsinline draggable="false" class="image" loop>
+                    <source src="img/PROYECTOR.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+                <img draggable="false" class="image" src="img/brasil.png" alt="">
+                <img draggable="false" class="image" src="img/c2.png" alt="">
+                <iframe class="image"src="https://www.youtube.com/embed/OcGnyKVW3Mk?si=rs7ixjXNrONkG-xD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <video  webkit-playsinline playsinline draggable="false" class="image">
+                    <source src="img/REEL_BRASIL.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+                <video  webkit-playsinline playsinline draggable="false" class="image" loop>
+                    <source src="img/IA_7.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+            </div>
+
+            <p class="text-info">
+                El diseño me ha traido más cerca del arte, ayudando a otros artistas a desarrollar y encontrar una identidad visual para sus proyectos.
+                <br>Para esto me desempeñé como Director Artístico de varios proyectos para Mito3000, desarrollando las visuales para sus Álbumes: <br> "Pentimento" y "Deus criou vida, nao criou racas" <br>
+                Desarrollando para los mismos reels promocionales para Instagram así como <strong>visualizadores con IA</strong> para sus ventas de beats <br>
+            </p>
+        </div>
+    </div>
+    <div class="info-container" id="facu-contain">
+        <div id="facultad">
+            <div class="close" onclick="closeCurrent(facultad)">x</div>
+            <h2>Facultad</h2>
+            <div class="gallery-exp">
+                <video  webkit-playsinline playsinline draggable="false" class="image" loop>
+                    <source src="img/VISUAL_CRETINA.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+                <img draggable="false" class="image" src="img/TIPO_Página_1.png" alt="">
+                <img draggable="false" class="image" src="img/TRAMA.png" alt="">
+                <img draggable="false" class="image" src="img/u1.png" alt="">
+               
+                <img draggable="false" class="image" src="img/BITACORA_Página_05.png" alt="">
+                <video  webkit-playsinline playsinline draggable="false" class="image">
+                    <source src="img/DEMO_WEB_PAC.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                </video>
+                <img draggable="false" class="image" src="img/DESPLEGABLE_DCV3.png" alt="">
+            </div>
+
+            <p class="text-info">
+                El diseño me ha traido más cerca del arte, ayudando a otros artistas a desarrollar y encontrar una identidad visual para sus proyectos.
+                <br>Para esto me desempeñé como Director Artístico de varios proyectos para Mito3000, desarrollando las visuales para sus Álbumes: <br> "Pentimento" y "Deus criou vida, nao criou racas" <br>
+                Desarrollando para los mismos reels promocionales para Instagram así como <strong>visualizadores con IA</strong> para sus ventas de beats <br>
+            </p>
+        </div>
+    </div> 
+
+    </div>
+-->
+    <div class="container" id="container-principal">
+
+
+        <div class="photo-gallery">
+
+            <div class="collumn">
+
+                <div class="photo">
+                    
+                    <video onclick="window.location.href = 'ENERGIA/index.html'" webkit-playsinline playsinline muted class="image" draggable="false" loop>
+                        <source src="ENERGIA/media.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+
+                    <img class="image" draggable="false" onclick="window.location.href = 'TIPOGRAFIA/index.html'" src="TIPOGRAFIA/1.png" alt="">
+                    
+                    <video onclick="window.location.href = 'PENTIMENTO/index.html'" webkit-playsinline playsinline class="image" draggable="false" loop>
+                        <source src="PENTIMENTO/2.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    
+                    <video onclick="window.location.href = 'INTERFERENCIA/index.html'" webkit-playsinline playsinline class="image" draggable="false" loop>
+                        <source src="INTERFERENCIA/media.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    
+                    <img class="image" draggable="false" onclick="window.location.href = 'BRASIL/index.html'" src="BRASIL/1.png" alt="">
+                    
+                    <video onclick="window.location.href = 'WAVES/index.html'" webkit-playsinline playsinline class="image" draggable="false" loop>
+                        <source src="WAVES/media.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+
+                </div>    
+
+            </div>
+
+            <div class="collumn">
+
+                <div class="photo">
+                    <video onclick="window.location.href = 'REFRACCION/index.html'" webkit-playsinline playsinline class="image" draggable="false" loop>
+                        <source src="REFRACCION/media.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    <img class="image" draggable="false" onclick="window.location.href = 'CENTAURO/index.html'" src="CENTAURO/media.jpg" alt="">
+                    
+                    <video  webkit-playsinline playsinline class="image" draggable="false" onclick="window.location.href = 'IAMITO/index.html'" loop>
+                        <source src="IAMITO/7.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    
+                    <img class="image" draggable="false" onclick="window.location.href = 'DCV/index.html'" src="DCV/media.png" alt="">
+                    <video  webkit-playsinline playsinline class="image" draggable="false" onclick="window.location.href = 'CRETINA/index.html'" loop> <!-- CAMBIAR POR openCurrent(facultad)-->
+                        <source src="CRETINA/media.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    <img class="image" draggable="false" onclick="window.location.href = 'COLOR/index.html'" src="COLOR/media.png" alt="">
+                    <video  webkit-playsinline playsinline class="image" draggable="false" onclick="window.location.href = '3D/index.html'" loop> <!-- CAMBIAR POR openCurrent(facultad)-->
+                        <source src="3D/1.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                </div>
+
+            </div>
+
+            <div class="collumn">
+
+                <div class="photo">
+                    <img class="image" draggable="false" onclick="window.location.href = 'PENTIMENTO/index.html'" src="PENTIMENTO/1.png" alt="">
+                    <video  webkit-playsinline playsinline class="image" draggable="false"  onclick="window.location.href = 'NADA/index.html'" loop>
+                        <source src="NADA/1.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    <video  webkit-playsinline playsinline class="image" draggable="false" onclick="window.location.href = 'PAC1/index.html'" loop> <!-- CAMBIAR POR openCurrent(facultad)-->
+                        <source src="PAC1/media.mp4#t=0.001" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeo mp4.
+                    </video>
+                    <img class="image" draggable="false" onclick="window.location.href = 'SINTAXIS/index.html'" src="SINTAXIS/media.png" alt=""> <!-- CAMBIAR POR openCurrent(facultad)-->
+                    <img class="image" draggable="false" onclick="window.location.href = 'TIPOGRAFIA/index.html'" src="TIPOGRAFIA/2.png" alt="">
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </div>
+    
+<!--<div class="sobremi-container" id="about-container">
+        <div class="scroll-button-container sobremi-button" onclick="expandContent()">
+            <svg class="scroll-button" id="sobreMiButton"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="black"d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg>
+        </div>
+        <h2>Sobre mí</h2>
+        <p>
+            Soy Facundo Magnin, nací en Paysandú, Uruguay <br>
+            Soy lo que se dice hoy en día un <strong>nativo digital</strong> por lo que las tecnologías
+            son una parte integral de mi trabajo como diseñador. <br>
+            Gracias a esta inmersión en un mundo digital pude adquirir la capacidad de entender el inglés
+            a una temprana edad lo cual me permite desempeñarme bien en tareas que requieran este segundo idioma. <br> 
+        </p>
+        <p> <br>
+            Estoy actualmente en el tercer año de la Licenciatura de Comunicación Visual (LDCV) de FADU,
+            Udelar. <br>
+            
+            Vivo en Montevideo, Uruguay; pero estoy disponible para trabajo remoto.
+        </p>
+    </div>
+    -->
+    <div class="footer" id="footer-container">
+        <p><strong>ARTS.STR</strong> | Todos los derechos reservados</p>
+    </div>
+    <script src='main.js'></script>
+</head>
+</body>
+</html>
