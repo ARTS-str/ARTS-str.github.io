@@ -1,5 +1,7 @@
 var text = document.getElementById('font');
 var tituloVariable = document.getElementById('titulo-variable');
+
+
 function variar(e) {
     let x = e.clientX;
     let y = e.clientY;
@@ -26,6 +28,9 @@ function variarTitulo(){
       break;
       case 3:
         tituloVariable.innerHTML ="WEBDEV.";
+      break;
+      case 4:
+        tituloVariable.innerHTML ="IDENTIDAD.";
         i = -1;
       break;
       default:
@@ -40,24 +45,38 @@ function variarTitulo(){
   }, 130);
 }
 
+var porcentajeCompletado;
+const creditosTotales = 363;
+const creditos = 268;
+function degreeProgress() {
+  const bar = document.getElementById('degreeProgressBar');
+
+  porcentajeCompletado = creditos/(creditosTotales/100);
+  bar.style.width = porcentajeCompletado + '%';
+  countUpPercentaje();
+}
+
+var index = 0;
+function countUpPercentaje() {
+  const percentage = document.getElementById('percentage');
+  setTimeout(() => {
+    percentage.innerHTML = index + '%';
+    index++
+    if (index <= porcentajeCompletado.toFixed()){
+      countUpPercentaje();
+    }
+  }, 1); 
+  
+}
+
 function scrollPortfolio() {
   scroll(0, 600);
 }
 
-let state = false;
-function expandContent(){
-  if(state == false){
-    document.getElementById('sobreMiButton').style.transform = 'rotate(180deg)';
-    document.getElementById("container-principal").classList.remove("hidden");
-    state = true;
-  }else if(state == true){
-    document.getElementById('sobreMiButton').style.transform = 'rotate(0deg)';
-    document.getElementById("container-principal").classList.add("hidden");
-    state = false;
-  }
-}
 
-const videos = document.querySelectorAll("video")
+function videoFunctionality() {
+  
+const videos = document.querySelectorAll("video");
 
 videos.forEach(video => {
   video.addEventListener("mouseover", function () {
@@ -84,59 +103,38 @@ videos.forEach(video => {
   })
 }) 
 
-
-function closeCurrent(param) {
-  document.querySelector("body").style.overflow = 'scroll';
-  switch (param) {
-    case arts:
-      var i = document.getElementById('arts-contain');
-      i.style.opacity = 0;
-      setTimeout(() => {
-        i.style.display = 'none';
-      }, 200);
-      break;
-    case mito:
-      var i = document.getElementById('mito-contain')
-      i.style.opacity = 0;
-      setTimeout(() => {
-        i.style.display = 'none';
-      }, 200);
-      break;
-    case facultad:
-      var i = document.getElementById('facu-contain')
-      i.style.opacity = 0;
-      setTimeout(() => {
-        i.style.display = 'none';
-      }, 200);
-      break;
-    default:
-      break;
-  }
-
 }
-function openCurrent(param) {
-  
-  document.querySelector("body").style.overflow = 'hidden';
-  switch (param) {
-    case arts:
-      var i = document.getElementById('arts-contain');
-      i.style.display = 'block';
-      i.style.opacity = 1;
-      break;
-    case mito:
-      var i = document.getElementById('mito-contain')
-      i.style.display = 'block';
-      i.style.opacity = 1;
-      break;
-      
-    case facultad:
-      var i = document.getElementById('facu-contain')
-      i.style.display = 'block';
-      i.style.opacity = 1;
-      break;
 
-    default:
-      break;
-  }
 
+const bloqueDeTextoCollection = document.querySelectorAll('.bloque-texto');
+const imageCollection = document.querySelectorAll('.image');
+var wHeight = window.innerHeight;
+
+window.addEventListener('resize', ()=>{
+  wHeight = window.innerHeight;
+})
+
+window.addEventListener('scroll', () => {
+  imageCollection.forEach(element => {
+    var elementPosition = element.getBoundingClientRect().y;
+    if (elementPosition < wHeight && element.style.opacity !== 1) {
+      element.style.opacity = '1';
+    }else if (elementPosition > wHeight && element.style.opacity !==0){
+      element.style.opacity = '0';
+    }
+  });
+  bloqueDeTextoCollection.forEach(element => {
+    var elementPosition = element.getBoundingClientRect().y;
+    if (elementPosition < wHeight && element.style.opacity !== 1) {
+      element.style.opacity = '1';
+    }else if (elementPosition > wHeight && element.style.opacity !==0){
+      element.style.opacity = '0';
+    }
+  });
+});
+
+function readScrollPercent() {
+  var scrollAmount = window.scrollY;
+  var maxScroll = scrollAmount - wHeight;
+  return wHeight;
 }

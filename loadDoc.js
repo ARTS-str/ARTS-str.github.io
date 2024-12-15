@@ -1,6 +1,5 @@
 var htmlString = [];
 var sliderArray = [];
-loadDoc();
 
 
 function loadDoc() {
