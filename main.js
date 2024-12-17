@@ -1,15 +1,28 @@
 var text = document.getElementById('font');
 var tituloVariable = document.getElementById('titulo-variable');
-
+var state = true;
 
 function variar(e) {
+  state = false;
     let x = e.clientX;
     let y = e.clientY;
-    text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x/4} `;
+    text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x/10} `;
+    setTimeout(() => {
+      state = true;
+    }, 1000);
 }
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+
+function variarPeso(enabled) {
+  if (enabled === true) {
+    let x = getRndInteger(100, 200);
+    let y = getRndInteger(100, 500);
+    text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x} `;
+  }
 }
 
 variarTitulo();
@@ -39,9 +52,7 @@ function variarTitulo(){
     i++;
   }, 1200);
   setInterval(() => {
-    let x = getRndInteger(100, 200);
-    let y = getRndInteger(100, 500);
-    text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x} `;
+    variarPeso(state)
   }, 130);
 }
 
@@ -69,30 +80,46 @@ function countUpPercentaje() {
   
 }
 
-function scrollPortfolio() {
-  scroll(0, 600);
-}
-
 
 function videoFunctionality() {
-  
-const videos = document.querySelectorAll("video");
 
-videos.forEach(video => {
+const elements = document.querySelectorAll('.element');
+
+
+elements.forEach(element => {
+
+  const video = element.firstElementChild;
+  const muteButton = element.lastElementChild;
+
+  var muteState = false;
+  const muteCheck = () =>{
+    if (video.muted === false) {
+      muteButton.src = 'rsc/UNMUTED.svg';
+  } else if(video.muted === true){
+      muteButton.src = 'rsc/MUTED.svg'
+  }
+  }
+  muteCheck();
+
+  muteButton.addEventListener('click',function () {
+    if (video.muted === true) {
+        muteButton.src = 'rsc/UNMUTED.svg';
+        video.muted = false;
+        muteState = false;
+    } else if(video.muted === false){
+        muteButton.src = 'rsc/MUTED.svg'
+        video.muted = true;
+        muteState = true;
+    }
+  });
+
+  
   video.addEventListener("mouseover", function () {
     this.play()
   })
   
   video.addEventListener("mouseout", function () {
     this.pause()
-  })
-  
-  video.addEventListener("click", function () {
-    if (this.muted == true){
-      this.muted = false;
-    }else if(this.muted == false){
-      this.muted = true;
-    }
   })
   video.addEventListener("touchstart", function () {
     this.play()
@@ -101,13 +128,17 @@ videos.forEach(video => {
   video.addEventListener("touchend", function () {
     this.pause()
   })
-}) 
+
+})
+
 
 }
 
 
+//Agregar efecto de fade in tomando todos los elementos con la clase bloque-texto y element, aplicandole 
+//la opacidad en base a si su posición en Y es mayor a la del punto inferior del viewport
 const bloqueDeTextoCollection = document.querySelectorAll('.bloque-texto');
-const imageCollection = document.querySelectorAll('.image');
+const imageCollection = document.querySelectorAll('.element');
 var wHeight = window.innerHeight;
 
 window.addEventListener('resize', ()=>{
