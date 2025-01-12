@@ -94,20 +94,20 @@ elements.forEach(element => {
   var muteState = false;
   const muteCheck = () =>{
     if (video.muted === false) {
-      muteButton.src = 'rsc/UNMUTED.svg';
+      muteButton.src = 'rsc/UNMUTED.png';
   } else if(video.muted === true){
-      muteButton.src = 'rsc/MUTED.svg'
+      muteButton.src = 'rsc/MUTED.png'
   }
   }
   muteCheck();
 
   muteButton.addEventListener('click',function () {
     if (video.muted === true) {
-        muteButton.src = 'rsc/UNMUTED.svg';
+        muteButton.src = 'rsc/UNMUTED.png';
         video.muted = false;
         muteState = false;
     } else if(video.muted === false){
-        muteButton.src = 'rsc/MUTED.svg'
+        muteButton.src = 'rsc/MUTED.png'
         video.muted = true;
         muteState = true;
     }

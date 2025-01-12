@@ -4,68 +4,45 @@ var sliderArray = [];
 
 function loadDoc() {
 
-    $.get("filetype.txt",function(filetype){
-        switch (filetype.split(" ")[0]) {
-            case "mp4":
-                document.getElementById('media').innerHTML += "<video id='video' oncanplay=handleVideoInteraction('video') webkit-playsinline playsinline loop muted autoplay src='media.mp4'> </video> <p id='box'>empty</p>";
-                callText();
-            break;
+    fetch('./filetype.json')
+    .then((response) => response.json())
+    .then((filetype) => 
+        {
+                for (let i = 0; i < filetype.length; i++) {
 
-        
-            case "png": //CAMBIAR A JPG
-                document.getElementById('media').innerHTML += "<img src='media.png'> <p id='box'>empty</p>";
-                callText();
-            break;
-            
-            case "jpg": //CAMBIAR A JPG
-                document.getElementById('media').innerHTML += "<img src='media.jpg'> <p id='box'>empty</p>";
-                callText();
-            break;
+                    sliderArray.push(`<a href='#slide-${i}'></a>`);
 
-            case "carrousel":
-                detectNumberOfMediaFiles();
-                callText();
-            default:
-            break;
-        }
-    });
-}
+                    switch (filetype.types.split(' ')[i]){
+                        case "png": 
+                            htmlString.push(`<img id='slide-${i}' src='${i+1}.png'/>`);
+                            break;
 
-function detectNumberOfMediaFiles() {
-    $.get('filetype.txt', function (string) {
-        var count = (string) => string.trim().split(/\s+/).length;
-        if (count(string) > 0) {
-            for (let index = 1; index < (count(string)); index++) {
-
-                sliderArray.push(`<a href='#slide-${index}'></a>`);
-
-                    switch (string.split(" ")[index]) {
                         case "mp4":
-                            htmlString.push(`<video id='slide-${index}' loop muted autoplay src='${index}.mp4' webkit-playsinline playsinline oncanplay=handleVideoInteraction('slide-${index}')> </video>`);
-                            console.log(index + "mp4");
-                        break;
-                
-                        case "png": //CAMBIAR A JPG
-                            htmlString.push(`<img id='slide-${index}' src='${index}.png'/>`);
-                            console.log(index + "png");
-                        break;
-
+                            htmlString.push(`<video id='slide-${i}' loop muted autoplay src='${i+1}.mp4' webkit-playsinline playsinline oncanplay=handleVideoInteraction('slide-${i}')> </video>`);
+                            break;
+    
                         case "jpg": //CAMBIAR A JPG
-                            htmlString.push(`<img id='slide-${index}' src='${index}.jpg'/>`);
-                            console.log(index + "jpg");
-                        break;
-                        default:
-                            console.log("default");
-                        break;
+                            htmlString.push(`<img id='slide-${i}' src='${i+1}.jpg'/>`);
+                            break;
+                            
+                            default:
+                                console.log("default");
+                            break;
+                    }
+                    
+                }
+
+                if (filetype.length > 1) {
+                    document.getElementById('media').innerHTML += `<section class='container'><div class='slider-wrapper'> <div class='slider'> ${htmlString.join(" ")} </div> <div class='slider-nav'> ${sliderArray.join(" ")} </div> </div> </section> <p id='box'>empty</p>`
+                } else if (filetype.length <= 1){
+                    document.getElementById('media').innerHTML += `<section class='container'>${htmlString.join(" ")} </section> <p id='box'>empty</p>`
                 }
                 
-            }
+                callText();
         }
-    
-    document.getElementById('media').innerHTML += `<section class='container'><div class='slider-wrapper'> <div class='slider'> ${htmlString.join(" ")} </div> <div class='slider-nav'> ${sliderArray.join(" ")} </div> </div> </section> <p id='box'>empty</p>`
-    });
-    
+    );
 }
+
 
 function callText() {
 
@@ -90,3 +67,39 @@ function handleVideoInteraction(id) {
     });
     return item;
 }
+
+
+function soundButtonHandle() {
+
+    const elements = document.querySelectorAll('.element');
+    
+    
+    elements.forEach(element => {
+    
+      const video = element.firstElementChild;
+      const muteButton = element.lastElementChild;
+    
+      var muteState = false;
+      const muteCheck = () =>{
+        if (video.muted === false) {
+          muteButton.src = 'rsc/UNMUTED.png';
+      } else if(video.muted === true){
+          muteButton.src = 'rsc/MUTED.png'
+      }
+      }
+      muteCheck();
+    
+      muteButton.addEventListener('click',function () {
+        if (video.muted === true) {
+            muteButton.src = 'rsc/UNMUTED.png';
+            video.muted = false;
+            muteState = false;
+        } else if(video.muted === false){
+            muteButton.src = 'rsc/MUTED.png'
+            video.muted = true;
+            muteState = true;
+        }
+      });
+    
+    
+    }) }

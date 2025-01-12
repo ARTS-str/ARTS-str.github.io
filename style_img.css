@@ -72,9 +72,12 @@ p{
 
 .topnav{
     padding: 20px 10px 0px 0px;
-    position: relative;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: right;
+    mix-blend-mode: difference;
+    z-index: 99;
 }
 .topnav a{
     padding: 10px;
@@ -158,6 +161,18 @@ a{
 	opacity: 1;
 }
 
+.sound-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    width: 19px;
+    cursor: pointer;
+}
+
+.element{
+    position: relative;
+}
 
 @keyframes pre-focus {
     from {transform: scale(100%);}

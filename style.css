@@ -205,14 +205,15 @@ html{
 
 .sound-button{
     position: absolute;
-    translate: -45px; 
-    padding: 15px; 
-    object-fit: scale-down; 
-    height: 15px;
-    width: fit-content;
-    mix-blend-mode:difference;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    width: 19px;
+    cursor: pointer;
 }
+
 .element{
+    position: relative;
     object-fit: cover;
     opacity: 0;
     transition: opacity .2s ease-in-out;
@@ -261,9 +262,13 @@ strong{
 
 .topnav{
     padding: 20px 10px 0px 0px;
-    position: relative;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: right;
+    mix-blend-mode: difference;
+    z-index: 99;
+    
 }
 .topnav a{
     padding: 10px;
@@ -284,6 +289,49 @@ ul{
     text-decoration: none;
     font-family: "sztos-variable",sans-serif;
 }
+
+.form{
+    font-family: "sztos-variable",sans-serif;
+    font-variation-settings: 'wght' 232, 'wdth' 150;
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    font-family: "sztos-variable",sans-serif;
+    font-variation-settings: 'wght' 232, 'wdth' 150;
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+    button {
+    font-family: "sztos-variable",sans-serif;
+    font-variation-settings: 'wght' 500, 'wdth' 150;
+    background-color: aliceblue;
+    color: #030100;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px white;
+    background-color: #030100;
+    color: aliceblue;
+  }
+
 @keyframes pre-focus {
     from {transform: scale(100%);}
     to {transform: scale(105%);}
@@ -391,5 +439,10 @@ ul{
     }
     .degree-progress{
         height: 30px;
+    }
+
+    .sound-button{
+        left: 5%;
+        top: 90%;
     }
 }
