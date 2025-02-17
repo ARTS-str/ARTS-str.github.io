@@ -98,12 +98,21 @@ a{
     font-variation-settings: 'wght' 300, 'wdth' 270;
 }
 
-.media-container img, video{
+.media-container img:not(.sound-button), video{
     height: 600px;
     border-radius: 5px;
     margin-bottom: 25px;
 }
 
+.element{
+    user-select: none;
+}
+
+video[id*='slide-']:hover{
+    animation: pre-focus 200ms ease-in-out alternate both;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px 15px white;
+}
 
 /*CODIGO SLIDER*/
 .container{
@@ -211,5 +220,11 @@ a{
     .footer p{
         font-size: 8pt;
         padding: 24px 0;
+    }
+    
+
+    .sound-button{
+        left: 5%;
+        top: 90%;
     }
 }

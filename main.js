@@ -58,7 +58,7 @@ function variarTitulo(){
 
 var porcentajeCompletado;
 const creditosTotales = 363;
-const creditos = 268;
+const creditos = 274;
 function degreeProgress() {
   const bar = document.getElementById('degreeProgressBar');
 
@@ -90,44 +90,48 @@ elements.forEach(element => {
 
   const video = element.firstElementChild;
   const muteButton = element.lastElementChild;
-
-  var muteState = false;
-  const muteCheck = () =>{
-    if (video.muted === false) {
-      muteButton.src = 'rsc/UNMUTED.png';
-  } else if(video.muted === true){
-      muteButton.src = 'rsc/MUTED.png'
-  }
-  }
-  muteCheck();
-
-  muteButton.addEventListener('click',function () {
-    if (video.muted === true) {
+  const videoCheck = video.tagName;
+  console.log(videoCheck);
+  if (videoCheck === 'VIDEO') {
+    
+    var muteState = false;
+    const muteCheck = () =>{
+      if (video.muted === false) {
         muteButton.src = 'rsc/UNMUTED.png';
-        video.muted = false;
-        muteState = false;
-    } else if(video.muted === false){
+    } else if(video.muted === true){
         muteButton.src = 'rsc/MUTED.png'
-        video.muted = true;
-        muteState = true;
     }
-  });
+    }
+    muteCheck();
 
-  
-  video.addEventListener("mouseover", function () {
-    this.play()
-  })
-  
-  video.addEventListener("mouseout", function () {
-    this.pause()
-  })
-  video.addEventListener("touchstart", function () {
-    this.play()
-  })
-  
-  video.addEventListener("touchend", function () {
-    this.pause()
-  })
+    muteButton.addEventListener('click',function () {
+      if (video.muted === true) {
+          muteButton.src = 'rsc/UNMUTED.png';
+          video.muted = false;
+          muteState = false;
+      } else if(video.muted === false){
+          muteButton.src = 'rsc/MUTED.png'
+          video.muted = true;
+          muteState = true;
+      }
+    });
+
+
+    video.addEventListener("mouseover", function () {
+      this.play()
+    })
+
+    video.addEventListener("mouseout", function () {
+      this.pause()
+    })
+    video.addEventListener("touchstart", function () {
+      this.play()
+    })
+
+    video.addEventListener("touchend", function () {
+      this.pause()
+    })
+  }
 
 })
 
@@ -147,25 +151,35 @@ window.addEventListener('resize', ()=>{
 
 window.addEventListener('scroll', () => {
   imageCollection.forEach(element => {
-    var elementPosition = element.getBoundingClientRect().y;
-    if (elementPosition < wHeight && element.style.opacity !== 1) {
+    var elementBound = element.getBoundingClientRect();
+    if (elementBound.y < wHeight && element.style.opacity !== 1) {
       element.style.opacity = '1';
-    }else if (elementPosition > wHeight && element.style.opacity !==0){
+    }else if (elementBound.y > wHeight && element.style.opacity !==0){
       element.style.opacity = '0';
     }
   });
   bloqueDeTextoCollection.forEach(element => {
-    var elementPosition = element.getBoundingClientRect().y;
-    if (elementPosition < wHeight && element.style.opacity !== 1) {
+    var elementBound= element.getBoundingClientRect();
+    if (elementBound.y < wHeight && element.style.opacity !== 1) {
       element.style.opacity = '1';
-    }else if (elementPosition > wHeight && element.style.opacity !==0){
+    }else if (elementBound.y > wHeight && element.style.opacity !==0){
+      element.style.opacity = '0';
+    }
+
+    if (elementBound.y + elementBound.height/2 > 0 && element.style.opacity !== 1) {
+      element.style.opacity = '1';
+    }else if (elementBound.y < 0 && element.style.opacity !==0){
       element.style.opacity = '0';
     }
   });
 });
 
-function readScrollPercent() {
-  var scrollAmount = window.scrollY;
-  var maxScroll = scrollAmount - wHeight;
-  return wHeight;
+function loadPageD() {
+  const page = document.getElementById('loadPage');
+  setTimeout(() => {
+    page.style.opacity = '0';
+  }, 2000);
+  setTimeout(() => {
+    page.style.display = 'none';
+  }, 2300);
 }

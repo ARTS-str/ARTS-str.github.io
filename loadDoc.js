@@ -2,8 +2,7 @@ var htmlString = [];
 var sliderArray = [];
 
 
-function loadDoc() {
-
+function loadDoc() { 
     fetch('./filetype.json')
     .then((response) => response.json())
     .then((filetype) => 
@@ -18,7 +17,8 @@ function loadDoc() {
                             break;
 
                         case "mp4":
-                            htmlString.push(`<video id='slide-${i}' loop muted autoplay src='${i+1}.mp4' webkit-playsinline playsinline oncanplay=handleVideoInteraction('slide-${i}')> </video>`);
+                            htmlString.push(`<div class='element'> <video id='slide-${i}' loop muted autoplay src='${i+1}.mp4' webkit-playsinline playsinline draggable="false"> </video> 
+                            <img src="../../rsc/MUTED.png" class="sound-button"/> </div>`);
                             break;
     
                         case "jpg": //CAMBIAR A JPG
@@ -39,10 +39,68 @@ function loadDoc() {
                 }
                 
                 callText();
+                
+                videoFunctionality()
         }
     );
 }
 
+
+function videoFunctionality() {
+    console.log('videoOn')
+    
+    const elements = document.querySelectorAll('.element');
+    
+    elements.forEach(element => {
+    
+      const video = element.firstElementChild;
+      const muteButton = element.lastElementChild;
+      const videoCheck = video.tagName;
+      console.log(videoCheck);
+      if (videoCheck === 'VIDEO') {
+        
+        var muteState = false;
+        const muteCheck = () =>{
+          if (video.muted === false) {
+            muteButton.src = '../../rsc/UNMUTED.png';
+        } else if(video.muted === true){
+            muteButton.src = '../../rsc/MUTED.png'
+        }
+        }
+        muteCheck();
+    
+        muteButton.addEventListener('click',function () {
+          if (video.muted === true) {
+              muteButton.src = '../../rsc/UNMUTED.png';
+              video.muted = false;
+              muteState = false;
+          } else if(video.muted === false){
+              muteButton.src = '../../rsc/MUTED.png'
+              video.muted = true;
+              muteState = true;
+          }
+        });
+    
+    
+        video.addEventListener("mouseover", function () {
+          this.play()
+        })
+    
+        video.addEventListener("mouseout", function () {
+          this.pause()
+        })
+        video.addEventListener("touchstart", function () {
+          this.play()
+        })
+    
+        video.addEventListener("touchend", function () {
+          this.pause()
+        })
+      }
+    
+    })
+    
+}
 
 function callText() {
 
@@ -54,52 +112,3 @@ function callText() {
     });
 }
 
-function handleVideoInteraction(id) {
-
-    var item = document.getElementById(id);
-
-    item.addEventListener('click', function (){
-        if (item.muted == true){
-            item.muted = false;
-          }else if(item.muted == false){
-            item.muted = true;
-          }
-    });
-    return item;
-}
-
-
-function soundButtonHandle() {
-
-    const elements = document.querySelectorAll('.element');
-    
-    
-    elements.forEach(element => {
-    
-      const video = element.firstElementChild;
-      const muteButton = element.lastElementChild;
-    
-      var muteState = false;
-      const muteCheck = () =>{
-        if (video.muted === false) {
-          muteButton.src = 'rsc/UNMUTED.png';
-      } else if(video.muted === true){
-          muteButton.src = 'rsc/MUTED.png'
-      }
-      }
-      muteCheck();
-    
-      muteButton.addEventListener('click',function () {
-        if (video.muted === true) {
-            muteButton.src = 'rsc/UNMUTED.png';
-            video.muted = false;
-            muteState = false;
-        } else if(video.muted === false){
-            muteButton.src = 'rsc/MUTED.png'
-            video.muted = true;
-            muteState = true;
-        }
-      });
-    
-    
-    }) }

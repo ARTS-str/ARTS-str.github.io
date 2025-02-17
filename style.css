@@ -107,7 +107,7 @@ p{
 .degree-progress-bar{
     background-color: aliceblue;
     width: 0;
-    transition: width .5s ease-in-out;
+    transition: width 2s ease-in-out;
 }
 
 .content-container{
@@ -129,7 +129,7 @@ p{
 }
 
 .flex-row{
-    gap: 50px;
+    gap: 250px;
     display: flex;
     flex-direction: row;
 }
@@ -143,7 +143,7 @@ p{
 .bloque-texto{
     background-color: #030100;
     border-radius: 5px;
-    width: 100%;
+    width: 80%;
     text-align: left;
     display: flex;
     justify-content: center;
@@ -231,6 +231,23 @@ html{
     animation: pre-focus 200ms ease-in-out alternate both;
     cursor: pointer;
     box-shadow: 0px 0px 15px 15px white;
+}
+
+#loadPage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+}
+
+.load{
+    width: 50%;
+    position: relative;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 strong{
