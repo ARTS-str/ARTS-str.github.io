@@ -205,13 +205,12 @@ html{
 
 .sound-button{
     position: absolute;
-    translate: -45px; 
     padding: 15px; 
-    object-fit: scale-down; 
     height: 15px;
     width: fit-content;
     mix-blend-mode:difference;
 }
+
 .element{
     object-fit: cover;
     opacity: 0;
@@ -334,7 +333,6 @@ ul{
     }
     .title-container{
         padding-top: 150px;
-        height: 0vh;
     }
     .info-container p{
         width: 100%;
@@ -391,5 +389,8 @@ ul{
     }
     .degree-progress{
         height: 30px;
+    }
+    .sound-button{
+        translate: -17rem; 
     }
 }
