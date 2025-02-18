@@ -187,13 +187,10 @@ window.addEventListener('scroll', () => {
       tooltip.style.opacity = '0';
     }
   } else {    
-    page.style.display = 'none';
+    tooltip.style.display = 'none';
   }
   
 });
-
-tooltip.onclick = () =>{
-}
 
 
 function fadeTooltip(time) {
