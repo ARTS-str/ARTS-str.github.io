@@ -1,14 +1,29 @@
-
-
 const body = document.getElementById('body');
-var porcentajeCompletado;
-const total = 100;
-const maximoTotal = 100;
+
+
+const videos = document.querySelectorAll('.image');
+var loadPercent = 0;
+
+videos.forEach(video => {
+
+  if (video.tagName === 'VIDEO') {
+    video.addEventListener('canplay' ,() =>{
+      loadPercent += 100/videos.length;
+      console.log(video, loadPercent);
+    }, { once: true });
+  }
+  if (video.tagName === 'IMG') {
+    video.addEventListener("load" ,() =>{
+      loadPercent += 100/videos.length;
+      console.log(video, loadPercent);
+    }, { once: true });
+  }
+});
+
+
 function loadProgress() {
   const bar = document.getElementById('degreeProgressBar');
-
-  porcentajeCompletado = maximoTotal/(total/100);
-  bar.style.width = 100 + '%';
+  bar.style.width = Math.trunc(loadPercent) + '%';
   countUpPercentaje();
 }
 
@@ -18,11 +33,27 @@ function countUpPercentaje() {
   setTimeout(() => {
     percentage.innerHTML = index + '%';
     index++
-    if (index <= porcentajeCompletado.toFixed()){
+    if (index <= Math.trunc(loadPercent)){
       countUpPercentaje();
+    }else{
+      loadPageD(300)
     }
 
   }, 10); 
   
 
+}
+
+
+
+
+
+function loadPageD(ms) {
+  const page = document.getElementById('loadPage');
+  setTimeout(() => {
+    page.style.opacity = '0';
+  }, ms);
+  setTimeout(() => {
+    page.style.display = 'none';
+  }, ms+300);
 }

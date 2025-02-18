@@ -7,9 +7,15 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
 </head>
-<body onload="videoFunctionality()">
+<body onload="videoFunctionality(), loadProgress()">
 
-    <iframe id="loadPage" onload="loadPageD()" src="load.html" frameborder="0"></iframe>
+    <div id="loadPage"> 
+        <p class="load-text">Cargando...</p>
+        <div class="degree-progress load" id="degreeProgressBarContainer">
+            <p id="percentage"></p>
+            <div class="degree-progress-bar" id="degreeProgressBar"></div>
+        </div>
+    </div>
        
     <div class="topnav">
         <a href="./index.html">Inicio</a>
@@ -17,7 +23,7 @@
         <a href="./us.html">Quienes somos</a>
     </div>
 
-    <div class="title-container" onmousemove="variar(event)">
+    <div class="title-container" onmouseover="variar(event)">
         <h1 draggable="false" id="font">SOY <a id="titulo-variable" href="">ARTS.</a></h1>
     </div>
 
@@ -190,6 +196,9 @@
     <div class="footer" id="footer-container">
         <p><strong>ARTS.STR</strong> | Todos los derechos reservados</p>
     </div>
+    <script src='titulo.js'></script>
+    <script src='fadeElements.js'></script>
+    <script src='load.js'></script>
     <script src='main.js'></script>
 </head>
 </body>

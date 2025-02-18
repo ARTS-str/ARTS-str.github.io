@@ -103,6 +103,12 @@ p{
     mix-blend-mode: difference;
     font-size: 12pt;
 }
+#percentageUs{
+    position: absolute;
+    color: aliceblue;
+    mix-blend-mode: difference;
+    font-size: 12pt;
+}
 
 .load-text{
     position: absolute;
@@ -245,6 +251,7 @@ html{
 
 #loadPage{
     position: absolute;
+    background-color: #030100;
     width: 100%;
     height: 100%;
     z-index: 999;
