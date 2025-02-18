@@ -1,7 +1,5 @@
-const body = document.getElementById('body');
-const videos = document.querySelectorAll('.image');
 
-body.style.overflowY = 'hidden';
+const videos = document.querySelectorAll('.image');
 var loadPercent = 0;
 
 videos.forEach(video => {
@@ -36,8 +34,6 @@ function countUpPercentaje() {
     if (index <= Math.trunc(loadPercent)){
       countUpPercentaje();
     }else{
-      
-      body.style.overflowY = 'scroll';
       loadPageD(300)
     }
 

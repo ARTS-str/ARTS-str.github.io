@@ -4,6 +4,7 @@
 const bloqueDeTextoCollection = document.querySelectorAll('.bloque-texto');
 const imageCollection = document.querySelectorAll('.element');
 
+
 var wHeight = window.innerHeight;
 
 window.addEventListener('resize', ()=>{

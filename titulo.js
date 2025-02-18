@@ -31,29 +31,56 @@ function variarPeso(enabled) {
 variarTitulo();
 function variarTitulo(){
   let i = 0;
-  setInterval(() => {
-    switch (i) {
-      case 0:
-        tituloVariable.innerHTML ="ARTS.";
-      break;
-      case 1:
-        tituloVariable.innerHTML ="DISEÑO.";
-      break;
-      case 2:
-        tituloVariable.innerHTML ="ANIMACIÓN.";
-      break;
-      case 3:
-        tituloVariable.innerHTML ="WEBDEV.";
-      break;
-      case 4:
-        tituloVariable.innerHTML ="IDENTIDAD.";
-        i = -1;
-      break;
-      default:
+  if (checkForMobile() === false) {
+    setInterval(() => {
+      switch (i) {
+        case 0:
+          tituloVariable.innerHTML ="ARTS.";
         break;
-    }
-    i++;
-  }, 1200);
+        case 1:
+          tituloVariable.innerHTML ="DISEÑO.";
+        break;
+        case 2:
+          tituloVariable.innerHTML ="ANIMACIÓN.";
+        break;
+        case 3:
+          tituloVariable.innerHTML ="WEBDEV.";
+        break;
+        case 4:
+          tituloVariable.innerHTML ="IDENTIDAD.";
+          i = -1;
+        break;
+        default:
+          break;
+      }
+      i++;
+    }, 1200);
+  } else {
+    
+    setInterval(() => {
+        switch (i) {
+          case 0:
+            tituloVariable.innerHTML ="</br>ARTS.";
+          break;
+          case 1:
+            tituloVariable.innerHTML ="</br>DISEÑO.";
+          break;
+          case 2:
+            tituloVariable.innerHTML ="</br>ANIMACIÓN.";
+          break;
+          case 3:
+            tituloVariable.innerHTML ="</br>WEBDEV.";
+          break;
+          case 4:
+            tituloVariable.innerHTML ="</br>IDENTIDAD.";
+            i = -1;
+          break;
+          default:
+            break;
+        }
+        i++;
+      }, 1200);
+  }
   setInterval(() => {
     variarPeso(state)
   }, 130);

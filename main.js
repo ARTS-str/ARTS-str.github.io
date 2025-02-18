@@ -1,6 +1,4 @@
 
-
-
 function videoFunctionality() {
 
 const elements = document.querySelectorAll('.element');
