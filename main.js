@@ -3,13 +3,16 @@ var tituloVariable = document.getElementById('titulo-variable');
 var state = true;
 
 function variar(e) {
-  state = false;
-    let x = e.clientX;
-    let y = e.clientY;
-    text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x/10} `;
-    setTimeout(() => {
-      state = true;
-    }, 1000);
+  
+  if (checkForMobile() === false) {
+    state = false;
+      let x = e.clientX;
+      let y = e.clientY;
+      text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x/10} `;
+      setTimeout(() => {
+        state = true;
+      }, 1000);
+  }
 }
 
 function getRndInteger(min, max) {
@@ -91,7 +94,6 @@ elements.forEach(element => {
   const video = element.firstElementChild;
   const muteButton = element.lastElementChild;
   const videoCheck = video.tagName;
-  console.log(videoCheck);
   if (videoCheck === 'VIDEO') {
     
     var muteState = false;
@@ -143,6 +145,8 @@ elements.forEach(element => {
 //la opacidad en base a si su posición en Y es mayor a la del punto inferior del viewport
 const bloqueDeTextoCollection = document.querySelectorAll('.bloque-texto');
 const imageCollection = document.querySelectorAll('.element');
+const tooltip = document.getElementById('tooltip');
+
 var wHeight = window.innerHeight;
 
 window.addEventListener('resize', ()=>{
@@ -172,7 +176,48 @@ window.addEventListener('scroll', () => {
       element.style.opacity = '0';
     }
   });
+
+
+  if (checkForMobile() === true) {
+    var tooltipBound= tooltip.getBoundingClientRect();
+    if (tooltipBound.y + tooltipBound.height/2 > 0 && tooltip.style.opacity !== 1) {
+      tooltip.style.opacity = '0.8';
+      //fadeTooltip(4000);
+    }else if (tooltipBound.y < 0 && tooltip.style.opacity !==0){
+      tooltip.style.opacity = '0';
+    }
+  } else {    
+    page.style.display = 'none';
+  }
+  
 });
+
+tooltip.onclick = () =>{
+}
+
+
+function fadeTooltip(time) {
+    setTimeout(() => {
+      tooltip.style.opacity = '0';
+    }, time);
+
+    setTimeout(() => {
+      tooltip.style.display = 'none';
+    }, time+500);
+
+}
+
+
+
+function checkForMobile(){
+  if (innerWidth <= 768) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
 
 function loadPageD() {
   const page = document.getElementById('loadPage');

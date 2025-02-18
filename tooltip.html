@@ -8,22 +8,16 @@
         <link rel='stylesheet' type='text/css' media='screen' href='../../style.css'>
     </head>
 
-    <body id="body" onload="loadProgress()">       
+    <body id="tooltip-body">
 
-        
-        <p class="load-text">Cargando...</p>
-        <div class="degree-progress load" id="degreeProgressBarContainer">
-            <p id="percentage"></p>
-            <div class="degree-progress-bar" id="degreeProgressBar"></div>
-        </div>
 
-        <script src="load.js">
-
-        </script>
+        <p style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">Manten pulsado para reproducir</p>
 
 
         <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+        </script>
+        <script src="main.js">
         </script>
     </body>
 </html>

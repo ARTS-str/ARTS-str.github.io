@@ -108,11 +108,12 @@ a{
     user-select: none;
 }
 
-video[id*='slide-']:hover{
+video[id*='slide-']:focus{
     animation: pre-focus 200ms ease-in-out alternate both;
     cursor: pointer;
-    box-shadow: 0px 0px 15px 15px white;
 }
+
+
 
 /*CODIGO SLIDER*/
 .container{
@@ -224,7 +225,8 @@ video[id*='slide-']:hover{
     
 
     .sound-button{
-        left: 5%;
-        top: 90%;
+        transform: scale(120%);
+        right: 2%;
+        top: 38%;
     }
 }

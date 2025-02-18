@@ -82,19 +82,14 @@ function videoFunctionality() {
         });
     
     
-        video.addEventListener("mouseover", function () {
-          this.play()
-        })
-    
-        video.addEventListener("mouseout", function () {
-          this.pause()
-        })
-        video.addEventListener("touchstart", function () {
-          this.play()
-        })
-    
-        video.addEventListener("touchend", function () {
-          this.pause()
+        video.addEventListener("click", function () {
+          if (video.paused === true) {
+            video.play()
+          } else {
+            video.pause()
+          }
+
+          
         })
       }
     
