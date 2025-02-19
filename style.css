@@ -32,10 +32,12 @@ body{
 }
 
 .title-container{
-    padding-top: 250px;
-    padding-bottom: 350px;
+    padding-top: 100px;
+    padding-bottom: 450px;
 }
 .title-container h1{
+    padding-top: 50px;
+    position: absolute;
     max-width: 100%;
 }
 .scroll-button-container{
@@ -219,11 +221,13 @@ html{
 
 .sound-button{
     position: absolute;
-    top: 0;
+    top: 85%;
     right: 0;
-    padding: 5px;
+    padding: 15px;
     width: 19px;
     cursor: pointer;
+    mix-blend-mode: difference;
+
 }
 
 .element{
@@ -503,8 +507,7 @@ input[type=text], select, textarea {
     }
 
     .sound-button{
-        left: 5%;
-        top: 90%;
+        bottom: 0;
         transform: scale(120%);
     }
 }

@@ -2,30 +2,15 @@ var text = document.getElementById('font');
 var tituloVariable = document.getElementById('titulo-variable');
 var state = true;
 
-function variar(e) {
-  
-  if (checkForMobile() === false) {
-    state = false;
-      let x = e.clientX;
-      let y = e.clientY;
-      text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x/10} `;
-      setTimeout(() => {
-        state = true;
-      }, 1000);
-  }
-}
-
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
 
-function variarPeso(enabled) {
-  if (enabled === true) {
+function variarPeso() {
     let x = getRndInteger(100, 200);
     let y = getRndInteger(100, 500);
     text.style.fontVariationSettings = `'wght' ${y}, 'wdth' ${x} `;
-  }
 }
 
 variarTitulo();
@@ -82,7 +67,7 @@ function variarTitulo(){
       }, 1200);
   }
   setInterval(() => {
-    variarPeso(state)
+    variarPeso()
   }, 130);
 }
 

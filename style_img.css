@@ -99,7 +99,7 @@ a{
 }
 
 .media-container img:not(.sound-button), video{
-    height: 600px;
+    height: 400px;
     border-radius: 5px;
     margin-bottom: 25px;
 }
@@ -108,12 +108,16 @@ a{
     user-select: none;
 }
 
-video[id*='slide-']:focus{
+video[id*='slide-']:hover{
     animation: pre-focus 200ms ease-in-out alternate both;
     cursor: pointer;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+}
+
+video[id*='slide-']:active{
+    animation: none;
 }
 
 
