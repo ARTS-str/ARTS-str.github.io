@@ -1,4 +1,3 @@
-
 const videos = document.querySelectorAll('.image');
 var loadPercent = 0;
 
@@ -10,24 +9,30 @@ videos.forEach(video => {
       console.log(video, loadPercent);
     }, { once: true });
   }
+
   if (video.tagName === 'IMG') {
     video.addEventListener("load" ,() =>{
       loadPercent += 100/videos.length;
       console.log(video, loadPercent);
     }, { once: true });
   }
+
 });
 
 
 function loadProgress() {
+
   const bar = document.getElementById('degreeProgressBar');
   bar.style.width = Math.trunc(loadPercent) + '%';
   countUpPercentaje();
+
 }
 
 var index = 0;
 function countUpPercentaje() {
+
   const percentage = document.getElementById('percentage');
+
   setTimeout(() => {
     percentage.innerHTML = index + '%';
     index++
@@ -36,9 +41,7 @@ function countUpPercentaje() {
     }else{
       loadPageD(300)
     }
-
   }, 10); 
-  
 
 }
 

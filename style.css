@@ -96,17 +96,15 @@ p{
     display: flex;
     flex-direction: row;
     border: aliceblue 2px solid;
+    background-image: linear-gradient(to left, #030100 40%, aliceblue 50%, #030100 60%);
+    background-size: 400% 400%;
+    animation: pre-load 1s ease infinite reverse;
+    background-attachment:fixed;
     height: 20px;
     margin-top: 10px;
 }
 
-#percentage{
-    position: absolute;
-    color: aliceblue;
-    mix-blend-mode: difference;
-    font-size: 12pt;
-}
-#percentageUs{
+#percentage, #percentageUs{
     position: absolute;
     color: aliceblue;
     mix-blend-mode: difference;
@@ -402,6 +400,11 @@ input[type=text], select, textarea {
 @keyframes fade-in {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+@keyframes pre-load {
+    0% {background-position: 0% 0%;}
+    100% {background-position: 100% 0%;};
 }
 
 
