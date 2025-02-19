@@ -34,8 +34,10 @@ body{
 .title-container{
     padding-top: 100px;
     padding-bottom: 450px;
+    user-select: none;
 }
 .title-container h1{
+    user-select: none;
     padding-top: 50px;
     position: absolute;
     max-width: 100%;
@@ -47,6 +49,7 @@ body{
     height: 24px;
     left: 50%;
     transform: translateX(-50%);
+    user-select: none;
 }
 .scroll-button{
     cursor: pointer;
@@ -54,6 +57,7 @@ body{
     opacity: 0;
     transform: scale(100%);
     transition: 50ms ease-out transform;
+    user-select: none;
 }
 .scroll-button:hover{
     transform: scale(125%);

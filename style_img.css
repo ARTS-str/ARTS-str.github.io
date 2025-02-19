@@ -136,6 +136,7 @@ video[id*='slide-']:active{
     gap: 20px;
 	display: flex;
 	overflow-x: auto;
+	overflow-y: hidden;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
 	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
@@ -207,7 +208,9 @@ video[id*='slide-']:active{
     }
     .container{    
         max-width: 100rem;
-        min-height: 460px;
+        min-height: 350px;
+	    overflow-x: auto;
+	    overflow-y: hidden;
     }
     .media-container{
         flex-direction: column;
@@ -216,7 +219,7 @@ video[id*='slide-']:active{
         font-size: 12pt;
         padding: 0 0 25px 0;
     }
-    .media-container img, video{
+    .media-container img:not(.sound-button), video{
         height: 350px;
         object-fit: scale-down;
         border-radius: 5px;
@@ -233,7 +236,7 @@ video[id*='slide-']:active{
 
     .sound-button{
         transform: scale(120%);
-        right: 2%;
-        top: 38%;
+        right: 10%;
+        top: 75%;
     }
 }
