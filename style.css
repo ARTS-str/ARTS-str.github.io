@@ -38,9 +38,10 @@ body{
 }
 .title-container h1{
     user-select: none;
-    padding-top: 50px;
+    padding-top: 25px;
     position: absolute;
     max-width: 100%;
+    overflow: hidden;
 }
 .scroll-button-container{
     rotate: 90deg;
@@ -65,6 +66,7 @@ body{
 
 video{
     cursor: pointer;
+    z-index: 9999;
 }
 
 h1{
@@ -200,6 +202,10 @@ html{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     background-color: #030100;
+}
+
+.webdev-photo{
+    padding: 20px;
 }
 
 .photo-gallery{
@@ -542,9 +548,6 @@ input[type=text], select, textarea {
     .title-container{
         padding-top: 150px;
         height: 0vh;
-    }
-    .title-container h1{
-        overflow: hidden;
     }
     .info-container p{
         width: 100%;

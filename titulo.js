@@ -16,23 +16,23 @@ function variarPeso() {
 variarTitulo();
 function variarTitulo(){
   let i = 0;
-  if (checkForMobile() === false) {
+    
     setInterval(() => {
       switch (i) {
         case 0:
-          tituloVariable.innerHTML ="ARTS.";
+          tituloVariable.innerHTML ="</br>ARTS.";
         break;
         case 1:
-          tituloVariable.innerHTML ="DISEÑO.";
+          tituloVariable.innerHTML ="</br>DISEÑO.";
         break;
         case 2:
-          tituloVariable.innerHTML ="ANIMACIÓN.";
+          tituloVariable.innerHTML ="</br>ANIMACIÓN.";
         break;
         case 3:
-          tituloVariable.innerHTML ="WEBDEV.";
+          tituloVariable.innerHTML ="</br>WEBDEV.";
         break;
         case 4:
-          tituloVariable.innerHTML ="IDENTIDAD.";
+          tituloVariable.innerHTML ="</br>IDENTIDAD.";
           i = -1;
         break;
         default:
@@ -40,32 +40,7 @@ function variarTitulo(){
       }
       i++;
     }, 1200);
-  } else {
-    
-    setInterval(() => {
-        switch (i) {
-          case 0:
-            tituloVariable.innerHTML ="</br>ARTS.";
-          break;
-          case 1:
-            tituloVariable.innerHTML ="</br>DISEÑO.";
-          break;
-          case 2:
-            tituloVariable.innerHTML ="</br>ANIMACIÓN.";
-          break;
-          case 3:
-            tituloVariable.innerHTML ="</br>WEBDEV.";
-          break;
-          case 4:
-            tituloVariable.innerHTML ="</br>IDENTIDAD.";
-            i = -1;
-          break;
-          default:
-            break;
-        }
-        i++;
-      }, 1200);
-  }
+
   setInterval(() => {
     variarPeso()
   }, 130);
@@ -80,4 +55,4 @@ function checkForMobile(){
     } else {
       return false;
     }
-  }
+}
