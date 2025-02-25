@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px black solid;
+            image-rendering: crisp-edges;
+        }
+        .controls {
+            position: absolute;
+            background-color: #030100bb;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 20px;
+            z-index: 999;
+        }
+        .color label{
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body onload="animate()">
+
+    <div class="controls">
+        <div class="color">
+            <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680">
+        </div>
+        <div class="color">
+            <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671">
+        </div>
+        <div class="color">
+            <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659">
+        </div>
+        <div class="color">
+            <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56">
+        </div>
+        <div class="color">
+            <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68">
+        </div>
+        <div class="color">
+            <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952">
+        </div>
+    </div>
+
+    <canvas id="c" ></canvas>
+    <script src="colorPick.js"></script>
+    <script src="vector-math.js"></script>
+    <script src="vector.js"></script>
+    <script src="attractor.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

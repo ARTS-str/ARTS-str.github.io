@@ -205,7 +205,10 @@ html{
 }
 
 .webdev-photo{
-    padding: 20px;
+    padding: 3.5%;
+    width: 25%;
+    position: relative;
+    
 }
 
 .photo-gallery{
@@ -622,4 +625,10 @@ input[type=text], select, textarea {
         left: auto;
         right:  -0.1em;
       }
+
+    
+    .webdev-photo{
+        padding: 5%;
+        width: 90%;
+    }
 }
