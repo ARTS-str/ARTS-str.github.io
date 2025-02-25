@@ -31,15 +31,15 @@ class Arrow{
             
             for (let r = 0; r < distanceArray.length; r++) {
                 if (distanceArray[r] === Math.min(...distanceArray)) {
-                    this.changeAngleOnMouse(this.attractors[r].position[0], this.attractors[r].position[1]); 
                     ctx.strokeStyle =  this.attractors[r].color;
+                    this.changeAngleOnMouse(this.attractors[r].position[0], this.attractors[r].position[1]); 
                 }
             }
             
 
         } else {
-            this.changeAngleOnMouse(this.attractors[0].position[0], this.attractors[0].position[1])
             ctx.strokeStyle =  this.attractors[0].color;
+            this.changeAngleOnMouse(this.attractors[0].position[0], this.attractors[0].position[1])
         }
     }
 

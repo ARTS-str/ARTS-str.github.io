@@ -2,7 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <style> 
+    @import url("https://use.typekit.net/wlu0pug.css");
         html, body{
             margin: 0;
             padding: 0;
@@ -14,45 +15,106 @@
             transform: translate(-50%, -50%);
             image-rendering: crisp-edges;
         }
-        .controls {
+        .control-master{
             position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 999;
+        }
+        .controls {
             background-color: #030100bb;
             border-radius: 5px;
             width: fit-content;
             padding: 20px;
-            z-index: 999;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            transition: opacity 0.2s ease;
         }
-        label{
+        label, p{
+            font-family: "sztos-variable",sans-serif;
+            font-variation-settings: 'wght' 160, 'wdth' 160;
             color: aliceblue;
+        }
+        #openControlsButton{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: none;
+            transition: opacity 0.2s ease;
+        }
+        #closeControlsButton{
+            translate: 0px -70px;
+        }
+        .slider{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #fpsCounter{
+            position: absolute;
+            translate: 0px -70px;
         }
     </style>
 </head>
 <body onload="animate()">
 
-    <div class="controls">
-        <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680" autocomplete="off">
+    <div class="control-master">
+        <button id="openControlsButton"  onclick="openControls()"><</button>
+        <div class="controls" id="controlContainer">
+            <div class="color-controls">
+                <div class="color">
+                    <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680" autocomplete="off">
+                </div>
+                <div class="color">
+                    <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671" autocomplete="off">
+                </div>
+                <div class="color">
+                    <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659" autocomplete="off">
+                </div>
+                
+            </div>
+            <div class="color-controls">
+                <div class="color">
+                    <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56" autocomplete="off">
+                </div>
+                <div class="color">
+                    <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68" autocomplete="off">
+                </div>
+                <div class="color">
+                    <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952" autocomplete="off">
+                </div>
+            </div>
+    
+            <div class="checkbox-container">
+                <div class="checkbox">
+                    <input onchange="updateGravity()" type="checkbox" id="isGravity" autocomplete="off">
+                    <label for="isGravity">Gravedad</label>
+                </div>
+                <div class="checkbox">
+                    <input onchange="updateShowAtractor()" type="checkbox" id="showAttractor" autocomplete="off">
+                    <label for="showAttractor">Mostrar atractores</label>
+                </div>
+                <div class="slider">
+                    <label for="backgroundOpacityInput">Blur</label>
+                    <input oninput="updateBackgroundOpacity()" type="range" min="0" max="1" value="1" step=".01" id="backgroundOpacityInput" autocomplete="off">
+                </div>
+                <div class="slider">
+                    <label for="lineWidthInput">Ancho de vectores</label>
+                    <input oninput="updateLineWidth()" type="range" min="1" max="6" value="1" step=".1" id="lineWidthInput" autocomplete="off">
+                </div>
+                <div class="slider">
+                    <label for="deltaTimeInput">Velocidad del Tiempo</label>
+                    <input oninput="updateDeltaTime()" type="range" min="0" max="100" value="0" step="1" id="deltaTimeInput" autocomplete="off">
+
+                </div>
+            </div>
+    
+            <button onclick="closeControls()" id="closeControlsButton">X</button>
+            <p id="fpsCounter">FPS: </p>;
         </div>
-        <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671" autocomplete="off">
-        </div>
-        <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659" autocomplete="off">
-        </div>
-        <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56" autocomplete="off">
-        </div>
-        <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68" autocomplete="off">
-        </div>
-        <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952" autocomplete="off">
-        </div>
-        <label for="isGravity">Gravedad</label>
-        <input onchange="updateGravity()" type="checkbox" id="isGravity" autocomplete="off"> <br>
-        <label for="showAttractor">Mostrar atractores</label>
-        <input onchange="updateShowAtractor()" type="checkbox" id="showAttractor" autocomplete="off">
     </div>
+    
 
     <canvas id="c" ></canvas>
     <script src="colorPick.js"></script>

@@ -1,6 +1,6 @@
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
-
+const fpsCounter = document.getElementById('fpsCounter');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
@@ -12,7 +12,6 @@ let magnitude = 10;
 let gridSize = 10;
 let onMobile = false;
 let gravity = [0, 0];
-ctx.lineWidth = 3;
 
 setup();
 function setup() {
@@ -33,33 +32,69 @@ function createGrid() {
     }
 }
 
-function animate() {
-    ctx.fillStyle = '#ffffff01';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    n0.forEach(e => {
-        e.show();
-        if (n1.length>0) {
-            
-            e.checkForAttractors();
-        }
-    });
-    n1.forEach(e => {
-        e.move();
-        e.collideWalls();
-        if (show === true) {
-            e.show();
-        }
-        
-    });
-    for (let i = 0; i < n1.length; i++) {
-        let particleA = n1[i]
-        for (let j = i+1; j < n1.length; j++) {
-            let particleB = n1[j];
-            particleA.collide(particleB);
-        }
-        
-    }
+let lastTime = 0;
+let eventUpdate = false;
+let eventTimer = 0;
+function animate(timeStamp) {
+
+    const deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
+    render(deltaTime);
+
     requestAnimationFrame(animate);
+}
+
+let fpsIndex = 0;
+function render(deltaTime) {
+    
+    if (eventUpdate) {
+        
+        fpsIndex++
+        
+        if (fpsIndex%6 === 0) {
+            let currentFPS = Math.trunc(1000 / deltaTime);
+            fpsCounter.innerHTML = "FPS: " + currentFPS;
+            fpsIndex = 0;
+        }
+
+        ctx.lineWidth = lineWidth;    
+        ctx.fillStyle = "rgba(255, 255, 255, " + backgroundOpacity + ")";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        n0.forEach(e => {
+            e.show();
+            if (n1.length>0) {
+                e.checkForAttractors();
+            }
+        });
+    
+        n1.forEach(e => {
+            e.move();
+            e.collideWalls();
+            if (show === true) {
+                e.show();
+            }
+            
+        });
+    
+        for (let i = 0; i < n1.length; i++) {
+            let particleA = n1[i]
+            for (let j = i+1; j < n1.length; j++) {
+                let particleB = n1[j];
+                particleA.collide(particleB);
+            }
+            
+        }
+    }
+
+    if (eventTimer < eventInterval) {
+        eventTimer += deltaTime;
+        eventUpdate = false;
+    }else{
+        eventTimer = 0;
+        eventUpdate = true;
+    }
+
 }
 
 function getRndInteger(min, max) {
