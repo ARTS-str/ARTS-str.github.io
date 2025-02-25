@@ -1,11 +1,12 @@
 class Attractor{
-    constructor(x, y, mass, color){
+    constructor(x, y, mass, color, gravity){
         this.position = [x, y]
-        this.velocity = [getRndInteger(1, 5), getRndInteger(1, 5)];
+        this.velocity = [getRndInteger(1, 6), getRndInteger(1, 6)];
         this.acceleration = [0, 0];
         this.mass = mass;
         this.r = mass;
         this.color = collorPalette[color];
+        this.gravity = gravity;
     }
 
     collide(other){
@@ -41,11 +42,10 @@ class Attractor{
 
     collideWalls(){
 
-        let kineticLoss = 0;
+        let kineticLoss = 1;
 
-        if (v2Mag(this.velocity) < 5) {
-            
-            kineticLoss = -.5;
+        if (v2Mag(this.gravity) > 0) {
+            kineticLoss = 1;
         } else {
 
             kineticLoss = 0;
@@ -78,16 +78,19 @@ class Attractor{
         this.acceleration = v2Add(this.acceleration, force); 
     }
     move(){
-        //let gravity = [0, 1];
-        //this.applyForce(gravity);
+        this.applyForce(this.gravity);
         this.velocity = v2Add(this.velocity, this.acceleration);
         this.position = v2Add(this.position, this.velocity);
         this.acceleration = v2Multv1(this.acceleration, 0);
     }
     show(){
+        ctx.save();
+        ctx.fillStyle = 'white'
+        ctx.globalCompositeOperation = "difference"; 
         ctx.beginPath();
         ctx.arc(this.position[0], this.position[1], this.r, 0, 2*Math.PI);
         ctx.fill();
+        ctx.restore();
     }
     
 }

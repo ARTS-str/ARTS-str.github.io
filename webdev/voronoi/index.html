@@ -12,7 +12,6 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            border: 1px black solid;
             image-rendering: crisp-edges;
         }
         .controls {
@@ -23,7 +22,7 @@
             padding: 20px;
             z-index: 999;
         }
-        .color label{
+        label{
             color: aliceblue;
         }
     </style>
@@ -32,23 +31,27 @@
 
     <div class="controls">
         <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680">
+            <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680" autocomplete="off">
         </div>
         <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671">
+            <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671" autocomplete="off">
         </div>
         <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659">
+            <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659" autocomplete="off">
         </div>
         <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56">
+            <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56" autocomplete="off">
         </div>
         <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68">
+            <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68" autocomplete="off">
         </div>
         <div class="color">
-            <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952">
+            <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952" autocomplete="off">
         </div>
+        <label for="isGravity">Gravedad</label>
+        <input onchange="updateGravity()" type="checkbox" id="isGravity" autocomplete="off"> <br>
+        <label for="showAttractor">Mostrar atractores</label>
+        <input onchange="updateShowAtractor()" type="checkbox" id="showAttractor" autocomplete="off">
     </div>
 
     <canvas id="c" ></canvas>

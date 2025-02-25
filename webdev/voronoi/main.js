@@ -10,8 +10,9 @@ let n0 = [];
 let n1 = [];
 let magnitude = 10;
 let gridSize = 10;
-ctx.lineWidth = 3;
 let onMobile = false;
+let gravity = [0, 0];
+ctx.lineWidth = 3;
 
 setup();
 function setup() {
@@ -45,7 +46,9 @@ function animate() {
     n1.forEach(e => {
         e.move();
         e.collideWalls();
-        //e.show();
+        if (show === true) {
+            e.show();
+        }
         
     });
     for (let i = 0; i < n1.length; i++) {
@@ -72,17 +75,17 @@ function getRndInteger(min, max) {
 //}
 let colorIndex = 0;
 canvas.onclick = (a) => {
-    colorIndex++;
     if (colorIndex > 5) {
         colorIndex = 0;
     }
 
     if (onMobile === true && n1.length < 24) {
-        n1.push(new Attractor(a.pageX, a.pageY, 15, colorIndex));
+        n1.push(new Attractor(a.pageX, a.pageY, 15, colorIndex, gravity));
     } else if (onMobile === false && n1.length < 36) {  
-        n1.push(new Attractor(a.pageX, a.pageY, 15, colorIndex));
+        n1.push(new Attractor(a.pageX, a.pageY, 15, colorIndex, gravity));
     } else{
         alert('Demasiados puntos!');
     }
+    colorIndex++;
 
 }
