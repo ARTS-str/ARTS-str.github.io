@@ -6,7 +6,7 @@ function updatePalette() {
     let cIndex = 0; 
     n1.forEach(e => {
         if (cIndex > 5) {
-            colorIndex = 0;
+            cIndex = 0;
         }
         e.color = collorPalette[cIndex];
         cIndex++
