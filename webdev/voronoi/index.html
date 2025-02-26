@@ -7,29 +7,30 @@
         html, body{
             margin: 0;
             padding: 0;
+            overflow: hidden;
+            cursor: none;
         }
         canvas{
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            background: aliceblue;
+            position: relative;
+            z-index: 1;
             image-rendering: crisp-edges;
         }
         .control-master{
             position: absolute;
             bottom: 0;
             right: 0;
-            z-index: 999;
+            z-index: 2;
         }
         .controls {
-            background-color: #030100bb;
             border-radius: 5px;
             width: fit-content;
             padding: 20px;
-            display: flex;
+            display: none;
             flex-direction: row;
             align-items: center;
             transition: opacity 0.2s ease;
+            gap: 10px;
         }
         label, p{
             font-family: "sztos-variable",sans-serif;
@@ -38,9 +39,10 @@
         }
         #openControlsButton{
             position: absolute;
-            bottom: 0;
+            width: 20px;
+            height: 100px;
+            bottom: 1%;
             right: 0;
-            display: none;
             transition: opacity 0.2s ease;
         }
         #closeControlsButton{
@@ -55,38 +57,104 @@
             position: absolute;
             translate: 0px -70px;
         }
+
+        input[type=color]{
+            height: 30px;
+            width: 30px;
+            appearance: none;
+            background: none;
+            border: none;
+            transition: transform 0.017ss ease;
+        }
+        input[type=color]:hover{
+            transform: scale(125%);
+        }
+        .color-element{
+            display: flex;
+        }
+        .color-element label {
+            position: absolute;
+            translate: -3px 100px;
+        }
+
+        .background{
+            background-color: #030100ff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        button{
+            appearance: none;
+            color: aliceblue;
+            width: 30px;
+            aspect-ratio: 1/1;
+        }
+
+        input, label, button{
+            cursor: none;
+        }
+
+        .circle{
+            position: fixed;
+            z-index: 999;
+            display: block;
+            background-color: #ffffff;
+            mix-blend-mode: difference;
+            pointer-events: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+        }
+        @keyframes bounce {
+            0% {transform: scale(100%);}
+            50% {transform: scale(75%);}
+            100% {transform: scale(100%);}
+        }
+
+        @media(max-width:768px){
+            .circle{
+                display: none;
+            }
+        }
     </style>
 </head>
 <body onload="animate()">
 
+    <div class="circle background" id="pointerCircle"></div>
+
     <div class="control-master">
-        <button id="openControlsButton"  onclick="openControls()"><</button>
+        <button class="background" id="openControlsButton"  onclick="openControls()"><</button>
         <div class="controls" id="controlContainer">
-            <div class="color-controls">
-                <div class="color">
-                    <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680" autocomplete="off">
+            <div class="color-element background">
+                <div class="color-controls">
+                    <div class="color">
+                        <input onchange="updatePalette()" type="color" id="pickedColor0" value="#422680" autocomplete="off">
+                    </div>
+                    <div class="color">
+                        <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671" autocomplete="off">
+                    </div>
+                    <div class="color">
+                        <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659" autocomplete="off">
+                    </div>
+                    
                 </div>
-                <div class="color">
-                    <input onchange="updatePalette()" type="color" id="pickedColor1" value="#341671" autocomplete="off">
-                </div>
-                <div class="color">
-                    <input onchange="updatePalette()" type="color" id="pickedColor2" value="#280659" autocomplete="off">
+                <div class="color-controls">
+                    <div class="color">
+                        <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56" autocomplete="off">
+                    </div>
+                    <div class="color">
+                        <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68" autocomplete="off">
+                    </div>
+                    <div class="color">
+                        <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952" autocomplete="off">
+                    </div>
                 </div>
                 
+                <label class="background" for="color-controls">Colores</label>
             </div>
-            <div class="color-controls">
-                <div class="color">
-                    <input onchange="updatePalette()" type="color" id="pickedColor3" value="#660f56" autocomplete="off">
-                </div>
-                <div class="color">
-                    <input onchange="updatePalette()" type="color" id="pickedColor4" value="#ae2d68" autocomplete="off">
-                </div>
-                <div class="color">
-                    <input onchange="updatePalette()" type="color" id="pickedColor5" value="#f54952" autocomplete="off">
-                </div>
-            </div>
+
     
-            <div class="checkbox-container">
+            <div class="checkbox-container background">
                 <div class="checkbox">
                     <input onchange="updateGravity()" type="checkbox" id="isGravity" autocomplete="off">
                     <label for="isGravity">Gravedad</label>
@@ -110,17 +178,20 @@
                 </div>
             </div>
     
-            <button onclick="closeControls()" id="closeControlsButton">X</button>
-            <p id="fpsCounter">FPS: </p>;
+            <button class="background" onclick="closeControls()" id="closeControlsButton">X</button>
+            <p class="background" id="fpsCounter">FPS: </p>;
         </div>
     </div>
     
 
+
     <canvas id="c" ></canvas>
-    <script src="colorPick.js"></script>
-    <script src="vector-math.js"></script>
-    <script src="vector.js"></script>
-    <script src="attractor.js"></script>
-    <script src="main.js"></script>
+
+    
 </body>
+<script src="colorPick.js"></script>
+<script src="vector-math.js"></script>
+<script src="vector.js"></script>
+<script src="attractor.js"></script>
+<script src="main.js"></script>
 </html>

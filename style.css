@@ -209,10 +209,12 @@ html{
     width: 25%;
     position: relative;
     
+    
 }
 
 .photo-gallery{
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 

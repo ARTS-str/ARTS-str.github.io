@@ -1,6 +1,7 @@
 const canvas = document.getElementById('c');
 const ctx = canvas.getContext('2d');
 const fpsCounter = document.getElementById('fpsCounter');
+const pointer = document.getElementById('pointerCircle');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
@@ -123,4 +124,25 @@ canvas.onclick = (a) => {
     }
     colorIndex++;
 
+    pointer.style.animation = 'bounce .2s ease-in-out'
+    setTimeout(() => {
+        
+        pointer.style.animation = 'none'
+    }, 200);
+
+}
+
+
+
+window.onmousemove = (e) => {
+    if (eventUpdate) {
+        pointer.style.left = e.clientX - pointer.getBoundingClientRect().width/2;
+        pointer.style.top = e.clientY - pointer.getBoundingClientRect().height/2;
+    }
+}
+window.onresize = (e) => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    n0.splice(0, n0.length);
+    createGrid();
 }

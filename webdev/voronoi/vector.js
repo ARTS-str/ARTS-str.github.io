@@ -6,6 +6,7 @@ class Arrow{
         this.angle = 0;
         this.magnitude = magnitude;
         this.attractors = attractors;
+        this.color;
     }
 
 
@@ -31,14 +32,14 @@ class Arrow{
             
             for (let r = 0; r < distanceArray.length; r++) {
                 if (distanceArray[r] === Math.min(...distanceArray)) {
-                    ctx.strokeStyle =  this.attractors[r].color;
+                    this.color =  this.attractors[r].color;
                     this.changeAngleOnMouse(this.attractors[r].position[0], this.attractors[r].position[1]); 
                 }
             }
             
 
         } else {
-            ctx.strokeStyle =  this.attractors[0].color;
+            this.color =  this.attractors[0].color;
             this.changeAngleOnMouse(this.attractors[0].position[0], this.attractors[0].position[1])
         }
     }
@@ -50,11 +51,14 @@ class Arrow{
     }
 
     show(){
+        ctx.save();
+        ctx.strokeStyle =  this.color;
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
         ctx.lineTo(this.x + this.magnitude * Math.cos(this.angle), this.y + this.magnitude * Math.sin(this.angle));
         ctx.closePath();
         ctx.stroke();
+        ctx.restore();
     
     }
 }
