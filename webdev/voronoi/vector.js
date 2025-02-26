@@ -7,6 +7,7 @@ class Arrow{
         this.magnitude = magnitude;
         this.attractors = attractors;
         this.color;
+        this.width = 1;
     }
 
 
@@ -52,13 +53,12 @@ class Arrow{
 
     show(){
         ctx.save();
-        ctx.strokeStyle =  this.color;
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + this.magnitude * Math.cos(this.angle), this.y + this.magnitude * Math.sin(this.angle));
-        ctx.closePath();
-        ctx.stroke();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(0, -this.width / 2, this.magnitude, this.width);
         ctx.restore();
+
     
     }
 }

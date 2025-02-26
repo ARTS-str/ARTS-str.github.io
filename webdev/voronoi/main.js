@@ -20,9 +20,10 @@ function setup() {
         onMobile = true;
         magnitude = 5;
         gridSize = 5;
-        ctx.lineWidth = 1;
     }
     createGrid();
+    
+
 }
 
 function createGrid() {
@@ -58,7 +59,6 @@ function render(deltaTime) {
             fpsIndex = 0;
         }
 
-        ctx.lineWidth = lineWidth;    
         ctx.fillStyle = "rgba(255, 255, 255, " + backgroundOpacity + ")";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 

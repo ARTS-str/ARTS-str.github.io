@@ -34,12 +34,12 @@ function closeControls() {
         container.style.display = 'none';
     }, 200);
     openButton.style.display = 'inline';
-    openButton.style.opacity = '1';
+    openButton.style.opacity = '0.7';
 }
 
 function openControls() {
     container.style.display = 'flex';
-    container.style.opacity = '1';
+    container.style.opacity = '0.9';
     openButton.style.opacity = '0';
     setTimeout(() => {
         openButton.style.display = 'none';
@@ -59,6 +59,9 @@ function updateBackgroundOpacity() {
 let lineWidth = document.getElementById('lineWidthInput').value;
 function updateLineWidth() {
     lineWidth = document.getElementById('lineWidthInput').value;
+    n0.forEach(e => {
+        e.width = lineWidth;
+    });
     
 }
 

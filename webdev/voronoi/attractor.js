@@ -31,11 +31,11 @@ class Attractor{
             let num = v2Dot(vDiff, impact);
             let den =  mSum * distance * distance;
             let deltaVA = v2Multv1(impact, 2 * other.mass * (num/den));
-            this.velocity = v2Add(this.velocity, deltaVA);
+            this.velocity = v2Add(v2Multv1(this.velocity, 0.9), deltaVA);
 
             //Calcular colison elástica de Particula B
             let deltaVB = v2Multv1(impact, -2 * this.mass * (num/den));
-            other.velocity = v2Add(other.velocity, deltaVB);
+            other.velocity = v2Add(v2Multv1(other.velocity, 0.9), deltaVB);
 
         }
     }
@@ -48,7 +48,7 @@ class Attractor{
             kineticLoss = 1;
         } else {
 
-            kineticLoss = 0;
+            kineticLoss = .1;
         }
 
         if (this.position[0] <= this.r) {
