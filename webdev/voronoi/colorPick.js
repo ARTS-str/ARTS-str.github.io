@@ -1,6 +1,24 @@
 
 let collorPalette = [document.getElementById('pickedColor0').value, document.getElementById('pickedColor1').value, document.getElementById('pickedColor2').value, document.getElementById('pickedColor3').value, document.getElementById('pickedColor4').value, document.getElementById('pickedColor5').value];
 
+
+let show; 
+let backgroundOpacity;
+let lineWidth;
+let eventInterval;
+
+function paramSetup() {
+    setTimeout(() => {
+        
+        updatePalette();
+        updateGravity();
+        updateShowAtractor();
+        updateBackgroundOpacity();
+        updateLineWidth();
+        updateDeltaTime();
+    }, 1);
+}
+
 function updatePalette() {
     collorPalette = [document.getElementById('pickedColor0').value, document.getElementById('pickedColor1').value, document.getElementById('pickedColor2').value, document.getElementById('pickedColor3').value, document.getElementById('pickedColor4').value, document.getElementById('pickedColor5').value];
     let cIndex = 0; 
@@ -14,14 +32,13 @@ function updatePalette() {
 }
 
 function updateGravity() {
-    gravity = (document.getElementById('isGravity').checked === true) ? [0, 1] : [0, 0]
+    gravity = (document.getElementById('isGravity').checked === true) ? [0, 1] : [0, 0];
     n1.forEach(e => {
         e.gravity = (document.getElementById('isGravity').checked === true) ? [0, 1] : [0, 0] ;
     });
 }
 
 
-let show = false; 
 function updateShowAtractor() {
     show = (document.getElementById('showAttractor').checked === true) ? true : false ;
 }
@@ -48,7 +65,6 @@ function openControls() {
 }
 
 
-let backgroundOpacity = 0;
 function updateBackgroundOpacity() {
     backgroundOpacity = ((Math.log((document.getElementById('backgroundOpacityInput').value)) * -1)) / 2;
     if (document.getElementById('backgroundOpacityInput').value <= 0.01) {
@@ -56,7 +72,6 @@ function updateBackgroundOpacity() {
     }
 }
 
-let lineWidth = document.getElementById('lineWidthInput').value;
 function updateLineWidth() {
     lineWidth = document.getElementById('lineWidthInput').value;
     n0.forEach(e => {
@@ -66,7 +81,6 @@ function updateLineWidth() {
 }
 
 
-let eventInterval = document.getElementById('deltaTimeInput').value;
 function updateDeltaTime() {
     eventInterval = document.getElementById('deltaTimeInput').value;
 }

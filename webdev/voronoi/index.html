@@ -130,6 +130,8 @@
             width: 15px;
             height: 15px;
             border-radius: 100%;
+            opacity: 1;
+            transition: opacity 100ms ease-in-out;
         }
 
         .header{
@@ -228,7 +230,7 @@
                 </div>
                 <div class="slider">
                     <label for="backgroundOpacityInput">Blur</label>
-                    <input oninput="updateBackgroundOpacity()" type="range" min="0" max="1" value="1" step=".01" id="backgroundOpacityInput" autocomplete="off">
+                    <input oninput="updateBackgroundOpacity()" type="range" min="0" max="1" value="0" step=".01" id="backgroundOpacityInput" autocomplete="off">
                 </div>
                 <div class="slider">
                     <label for="lineWidthInput">Ancho de vectores</label>

@@ -27,11 +27,13 @@ function setup() {
 }
 
 function createGrid() {
+    paramSetup();
     for (let x = 0; x < canvas.width; x+=gridSize) {
         for (let y = 0; y < canvas.height; y+=gridSize) {
             n0.push(new Arrow(x, y, n1, magnitude));
         }
     }
+    
 }
 
 let lastTime = 0;
@@ -135,10 +137,17 @@ canvas.onclick = (a) => {
 
 
 window.onmousemove = (e) => {
-    if (eventUpdate) {
-        pointer.style.left = e.clientX - pointer.getBoundingClientRect().width/2;
-        pointer.style.top = e.clientY - pointer.getBoundingClientRect().height/2;
-    }
+    pointer.style.display = 'block';
+    pointer.style.opacity = '1';
+    pointer.style.left = e.clientX - pointer.getBoundingClientRect().width/2;
+    pointer.style.top = e.clientY - pointer.getBoundingClientRect().height/2;
+}
+window.onmouseout = (e) => {
+    
+    pointer.style.opacity = '0';
+    setTimeout(() => {   
+        pointer.style.display = 'none';
+    }, 100);
 }
 window.onresize = (e) => {
     canvas.width = innerWidth;

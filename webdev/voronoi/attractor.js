@@ -7,12 +7,14 @@ class Attractor{
         this.r = mass;
         this.color = collorPalette[color];
         this.gravity = gravity;
+        this.kineticLoss = 1;
     }
 
     collide(other){
             
         let impact = v2Sub(other.position, this.position);
         let distance = v2Mag(impact);
+
 
         if (distance <= this.r + other.r) {
 
@@ -42,35 +44,26 @@ class Attractor{
 
     collideWalls(){
 
-        let kineticLoss = 1;
-
-        if (v2Mag(this.gravity) > 0) {
-            kineticLoss = 1;
-        } else {
-
-            kineticLoss = .1;
-        }
-
         if (this.position[0] <= this.r) {
             this.position[0] = this.r;
             this.velocity[0] *= -1;
-            this.velocity[0] -= kineticLoss;
+            this.velocity[0] -= this.kineticLoss;
 
         } else if (this.position[0] >= canvas.width - this.r) {
             this.position[0] = canvas.width - this.r;
             this.velocity[0] *= -1;
-            this.velocity[0] += kineticLoss;
+            this.velocity[0] += this.kineticLoss;
         } 
 
         if (this.position[1] <= 0 + this.r) {
             this.position[1] = this.r;
             this.velocity[1] *= -1;
-            this.velocity[1] -= kineticLoss;
+            this.velocity[1] -= this.kineticLoss;
 
         } else if (this.position[1] >= canvas.height - this.r) {
             this.position[1] = canvas.height - this.r;
             this.velocity[1] *= -1;
-            this.velocity[1] += kineticLoss;
+            this.velocity[1] += this.kineticLoss;
         }
     }
 
@@ -78,8 +71,26 @@ class Attractor{
         this.acceleration = v2Add(this.acceleration, force); 
     }
     move(){
+
+        if (v2Mag(this.gravity) > 0) {
+            this.kineticLoss = 1;
+        } else {
+            this.kineticLoss = .1;
+        }
+
         this.applyForce(this.gravity);
-        this.velocity = v2Add(this.velocity, this.acceleration);
+
+        
+        if (v2Mag(this.velocity) < .1){
+            this.velocity = v2SetMag(this.velocity, 0);
+        } else{
+            this.velocity = v2Add(this.velocity, this.acceleration);
+        }
+
+        if (v2Mag(this.velocity) > 10) {
+            v2SetMag(this.velocity, 9);
+        }
+
         this.position = v2Add(this.position, this.velocity);
         this.acceleration = v2Multv1(this.acceleration, 0);
     }
