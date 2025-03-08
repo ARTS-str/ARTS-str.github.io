@@ -214,8 +214,11 @@ html{
 
 .photo-gallery{
     display: flex;
-    align-items: center;
     gap: 20px;
+}
+
+.web-gallery{
+    align-items: center;
 }
 
 .collumn{
